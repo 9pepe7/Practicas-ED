@@ -1,2 +1,2 @@
 // Emilio joputa
-En un pais multicolo, habia una abeja bajo el sol
+En un pais multicolor, habia una abeja bajo el sol
