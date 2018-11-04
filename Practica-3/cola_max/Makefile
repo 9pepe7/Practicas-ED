@@ -4,6 +4,7 @@ OBJ = obj
 BIN = bin
 CXX = g++
 CPPFLAGS = -Wall -g  -I$(INC) -c
+includes = $(INC)/Cola_max.h $(INC)/Cola_max_pila.h
 
 
 all: $(BIN)/pruebacola_max
@@ -11,9 +12,16 @@ all: $(BIN)/pruebacola_max
 documentacion:
 	doxygen doc/doxys/Doxyfile
 
-	
+
 # ************ Compilación de módulos ************
-$(BIN)/pruebacola_max:
+$(BIN)/pruebacola_max: $(OBJ)/pruebacola_max.o $(OBJ)/Cola_max_pila.o
+	$(CXX) -o $@ $^ -I$(INC)
+
+$(OBJ)/pruebacola_max.o: $(SRC)/pruebacola_max.cpp $(includes)
+	$(CXX) $(CPPFLAGS) -o $@ $<
+
+$(OBJ)/Cola_max_pila.o: $(SRC)/Cola_max_pila.cpp
+	$(CXX) $(CPPFLAGS) -o $@ $<
 
 
 
