@@ -20,7 +20,7 @@ $(BIN)/pruebacola_max: $(OBJ)/pruebacola_max.o $(OBJ)/Cola_max_pila.o
 $(OBJ)/pruebacola_max.o: $(SRC)/pruebacola_max.cpp $(includes)
 	$(CXX) $(CPPFLAGS) -o $@ $<
 
-$(OBJ)/Cola_max_pila.o: $(SRC)/Cola_max_pila.cpp
+$(OBJ)/Cola_max_pila.o: $(SRC)/Cola_max_pila.cpp $(INC)/Cola_max_pila.h
 	$(CXX) $(CPPFLAGS) -o $@ $<
 
 

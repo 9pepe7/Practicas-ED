@@ -1,19 +1,40 @@
+/**
+  * @file Cola_max_pila.h.h
+  * @brief Fichero cabecera del TDA Cola_max en su implementacion a base de dos pilas
+  *
+  */
+#ifndef COLA_MAX_PILA_H
+#define COLA_MAX_PILA_H
 #include <stack>
 
 using namespace std;
 
-/*
-Haremos uso de dos pilas que trabajarán en conjunto, una para inseriones y otra para extracciones.
-*/
+/**
+  * @brief T.D.A. Cola_max
+  *
+  * Una instancia del TDA Cola_max es, a efectos practicos, una cola de la que además se puede saber el máximo.
+  * Esta implementación contiene dos pilas con sus miembros repartidos entre ambas,
+  * y una variable que contiene dicho máximo.
+  *
+  * @author José Manuel Navarro Cuartero
+  * @author Emilio Calvo de Mora Mármol
+  * @date Noviembre 2018
+  */
 template <class T>
 class Cola_max{
 private:
-  stack<T> in;
-  stack<T> out;
+  stack<T> in; /**< Cola para inserciones */
+  stack<T> out;/**< Cola para extracciones y consultas*/
+  T max; /**< Maximo */
+
 public:
   void poner(T x);
   void quitar();
   T frente();
   bool vacia();
   int num_elementos();
+  T maximo();
+private:
+  void buscaMaximo();
 };
+#endif
