@@ -15,13 +15,13 @@ documentacion:
 
 # ************ Compilación de módulos ************
 $(BIN)/pruebacola_max: $(OBJ)/pruebacola_max.o $(OBJ)/Cola_max_pila.o
-	$(CXX) -o $@ $^ -I$(INC)
+	$(CXX) -o $(BIN)/pruebacola_max $(OBJ)/*.o -I$(INC)
 
-$(OBJ)/pruebacola_max.o: $(SRC)/pruebacola_max.cpp $(includes)
-	$(CXX) $(CPPFLAGS) -o $@ $<
+$(OBJ)/pruebacola_max.o: $(SRC)/pruebacola_max.cpp $(INC)/Cola_max.h $(INC)/Cola_max_pila.h
+	$(CXX) $(CPPFLAGS) -o $(OBJ)/pruebacola_max.o $(SRC)/pruebacola_max.cpp
 
 $(OBJ)/Cola_max_pila.o: $(SRC)/Cola_max_pila.cpp $(INC)/Cola_max_pila.h
-	$(CXX) $(CPPFLAGS) -o $@ $<
+	$(CXX) $(CPPFLAGS) -o $(OBJ)/Cola_max_pila.o $(SRC)/Cola_max_pila.cpp
 
 
 

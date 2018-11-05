@@ -9,21 +9,25 @@ Haremos uso de dos pilas que trabajarán en conjunto, una para inserciones y otr
 template <typename T>
 void Cola_max<T>::poner(T x){ // push
   in.push(x);
-  if(x>max)
+  if(num_elementos()==1 || x>max)
     max=x;
 }
 
 template <typename T>
 void Cola_max<T>::quitar(){ // pop
-  if(out.empty()){
+  if(out.empty()){ // Si la cola de salida está vacía, se descarga en ella la de entrada
     while(!in.empty()){
       out.push(in.top());
       in.pop();
     }
   }
-  if(out.top()==max){
+  if(out.top()==max){ // Si el elemento que se va a eliminar era el maximo, habra que volverlo a buscar
     out.pop();
-    buscaMaximo();
+    if(!vacia()){ // Se busca si queda algun elemento
+      buscaMaximo();
+    } else{ // Si no, es null
+      max=NULL;
+    }
   } else {
     out.pop();
   }
@@ -61,9 +65,31 @@ T Cola_max<T>::maximo(){ // maximo elemento
 }
 
 template <typename T>
-void Cola_max<T>::buscaMaximo(){
+void Cola_max<T>::buscaMaximo(){ // Busca el maximo, debe haber al menos 1 elemento
   stack<T> aux;
-  while(!in.empty()){
-
+  if(!in.empty()){  // Comprobamos que la cola no esté vacía antes de entrar
+    max=in.top(); // El primero es maximo provisional
+    while(!in.empty()){ // Se recorre, usando una cola auxiliar
+      if(in.top()>max)
+        max=in.top();
+      aux.push(in.top());
+      in.pop();
+    }
+    while(!aux.empty()){
+      in.push(aux.top());
+      aux.pop();
+    }
+  } else {
+    max=out.top();
+  }
+  while(!out.empty()){
+    if(out.top()>max)
+      max=out.top();
+    aux.push(out.top());
+    out.pop();
+  }
+  while(!aux.empty()){
+    out.push(aux.top());
+    aux.pop();
   }
 }
