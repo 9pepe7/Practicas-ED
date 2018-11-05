@@ -23,7 +23,7 @@ template <class T>
 class Cola_max{
 private:
   vector<T> principal; /**< Vector con los elementos*/
-  vector<T> maximo;/**< Vector de maximos*/
+  vector<T> max;/**< Vector de maximos*/
 
 public:
   void poner(T x);
