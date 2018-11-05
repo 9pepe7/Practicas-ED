@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Cola_max.h"
-//#include "Cola_max_pila.cpp"
+//#include "Cola_max.h"
+#include "Cola_max_pila.cpp"
 
 using namespace std;
 

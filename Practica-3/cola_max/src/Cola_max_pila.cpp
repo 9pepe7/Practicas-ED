@@ -26,7 +26,7 @@ void Cola_max<T>::quitar(){ // pop
     if(!vacia()){ // Se busca si queda algun elemento
       buscaMaximo();
     } else{ // Si no, es null
-      max=NULL;
+      max=0;
     }
   } else {
     out.pop();
