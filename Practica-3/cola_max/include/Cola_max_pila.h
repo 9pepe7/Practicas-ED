@@ -1,5 +1,5 @@
 /**
-  * @file Cola_max_pila.h.h
+  * @file Cola_max_pila.h
   * @brief Fichero cabecera del TDA Cola_max en su implementacion a base de dos pilas
   *
   */
