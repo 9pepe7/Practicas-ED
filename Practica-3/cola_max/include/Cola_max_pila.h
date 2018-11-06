@@ -12,9 +12,10 @@ using namespace std;
 /**
   * @brief T.D.A. Cola_max
   *
-  * Una instancia del TDA Cola_max es, a efectos practicos, una cola de la que además se puede saber el máximo.
-  * Esta implementación contiene dos pilas con sus miembros repartidos entre ambas,
-  * y una variable que contiene dicho máximo.
+  * Una instancia del TDA Cola_max es, a efectos practicos, una cola (FIFO) de la
+  * que además se puede saber el máximo. Esta implementación contiene dos pilas con
+  * sus miembros repartidos entre ambas, y una variable que contiene dicho máximo,
+  * que se modificará cuando se añada un maximo nuevo, o cuando se elimine dicho maximo.
   *
   * @author José Manuel Navarro Cuartero
   * @author Emilio Calvo de Mora Mármol
