@@ -36,12 +36,12 @@ private:
 public:
 /**
   * @brief función push de una cola, mete un elemento en la cola, por detrás de la misma
-  * @param Una variable de tipo T
+  * @param x Una variable de tipo T
   */
   void poner(T x);
 
 /**
-  * @brief función pop de una cola, quita el elemento que primero entró en la misma, el de delante
+  * @brief función pop de una cola, quita el elemento más antiguo de la misma, el de delante
   */
   void quitar();
 
@@ -71,7 +71,7 @@ public:
 
 private:
 /**
-  * @brief función que encuentra el máximo de la cola
+  * @brief función que encuentra el máximo de la cola y modifica su miembro "max"
   */
   void buscaMaximo();
 

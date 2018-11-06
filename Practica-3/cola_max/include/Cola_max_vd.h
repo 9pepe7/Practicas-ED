@@ -32,19 +32,18 @@ private:
   *
   */
   vector<T> principal; /**< Vector con los elementos*/
-
   vector<T> max;/**< Vector de maximos*/
 
 public:
 
 /**
   * @brief función push de una cola, mete un elemento en la cola, por detrás de la misma
-  * @param Una variable de tipo T
+  * @param x Una variable de tipo T
   */
   void poner(T x);
 
 /**
-  * @brief función pop de una cola, quita el elemento que primero entró en la misma, el de delante
+  * @brief función pop de una cola, quita el elemento más antiguo de la misma, el de delante
   */
   void quitar();
 
@@ -68,7 +67,7 @@ public:
 
 /**
   * @brief función que devuelve el máximo de la cola
-  * @return devuelve una variable de tipo T con el valor máximo de la cola
+  * @return devuelve un objeto de tipo T con el valor máximo de la cola en ese momento
   */
   T maximo();
 
