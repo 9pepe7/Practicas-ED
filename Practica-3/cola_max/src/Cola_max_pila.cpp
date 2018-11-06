@@ -46,12 +46,7 @@ T Cola_max<T>::frente(){ // front
 
 template <typename T>
 bool Cola_max<T>::vacia(){ // empty
-  bool res=true;
-  if(!in.empty())
-    res=false;
-  if(!out.empty())
-    res=false;
-  return res;
+  return (in.empty()&&out.empty());
 }
 
 template <typename T>
