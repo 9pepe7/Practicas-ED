@@ -5,19 +5,22 @@ using namespace std;
 
 
 template <typename T>
-void Cola_max<T>::poner(T x){
+void Cola_max<T>::poner(T x){ // push_back
   principal.push_back(x);
   max.push_back(x);
-  for(typename vector<T>::iterator it=max.end();it!=max.begin()-1;--it){
-    if(*it > *(it-1)){
-      *(it-1)=*it;
+  if(num_elementos()>1){
+    //typename const vector<T>::iterator it=max.begin();
+    for(int i=num_elementos()-1;i>0;--i){
+      if(max[i] > max[i-1]){
+        max[i-1]=max[i];
+      }
     }
   }
 }
 
 template <typename T>
-void Cola_max<T>::quitar(){ // pop
-  principal.erase(principal.begin());//pop_front
+void Cola_max<T>::quitar(){ // pop_front
+  principal.erase(principal.begin());;
   max.erase(max.begin());
 }
 
