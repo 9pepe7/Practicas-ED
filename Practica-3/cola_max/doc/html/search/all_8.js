@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quitar',['quitar',['../classCola__max.html#a21f1d915c674522d438f8288177e7ecb',1,'Cola_max::quitar()'],['../classCola__max.html#a21f1d915c674522d438f8288177e7ecb',1,'Cola_max::quitar()']]]
+  ['rep_20del_20tda_20colamax',['Rep del TDA Colamax',['../repColamaxpila.html',1,'']]],
+  ['rep_20del_20tda_20colamax',['Rep del TDA Colamax',['../repColamaxvd.html',1,'']]]
 ];

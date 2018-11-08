@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['cola_5fmax',['Cola_max',['../classCola__max.html',1,'']]],
-  ['cola_5fmax_5fpila_2eh',['Cola_max_pila.h',['../Cola__max__pila_8h.html',1,'']]]
+  ['frente',['frente',['../classCola__max.html#ad24d6ded47e7696c53dd10e33cce403e',1,'Cola_max::frente()'],['../classCola__max.html#ad24d6ded47e7696c53dd10e33cce403e',1,'Cola_max::frente()']]]
 ];

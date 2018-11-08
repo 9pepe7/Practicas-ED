@@ -4,7 +4,7 @@ OBJ = obj
 BIN = bin
 CXX = g++
 CPPFLAGS = -Wall -g  -I$(INC) -c
-includes = $(INC)/Cola_max.h $(INC)/Cola_max_pila.h $(INC)/Cola_max_vd.h
+includes = $(INC)/Cola_max.h $(INC)/Cola_max_pila.cpp $(INC)/Cola_max_vd.cpp $(INC)/PilaMax.cpp
 
 
 all: $(BIN)/pruebacola_max
@@ -14,17 +14,8 @@ documentacion:
 
 
 # ************ Compilación de módulos ************
-$(BIN)/pruebacola_max: $(OBJ)/pruebacola_max.o $(OBJ)/Cola_max_pila.o $(OBJ)/Cola_max_vd.o
-	$(CXX) -o $@ $^ -I$(INC)
-
-$(OBJ)/pruebacola_max.o: $(SRC)/pruebacola_max.cpp $(includes)
-	$(CXX) $(CPPFLAGS) -o $@ $<
-
-$(OBJ)/Cola_max_pila.o: $(SRC)/Cola_max_pila.cpp $(INC)/Cola_max_pila.h
-	$(CXX) $(CPPFLAGS) -o $@ $<
-
-$(OBJ)/Cola_max_vd.o: $(SRC)/Cola_max_vd.cpp $(INC)/Cola_max_vd.h
-	$(CXX) $(CPPFLAGS) -o $@ $<
+$(BIN)/pruebacola_max: $(SRC)/pruebacola_max.cpp $(includes)
+	$(CXX) -o $@ $< -I$(INC)
 
 # ************ Limpieza ************
 clean :

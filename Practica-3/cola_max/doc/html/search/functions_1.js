@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['frente',['frente',['../classCola__max.html#ad24d6ded47e7696c53dd10e33cce403e',1,'Cola_max::frente()'],['../classCola__max.html#ad24d6ded47e7696c53dd10e33cce403e',1,'Cola_max::frente()']]]
+  ['maximo',['maximo',['../classCola__max.html#a3df6075351dfd7c9e9a436a6d430e170',1,'Cola_max::maximo()'],['../classCola__max.html#a3df6075351dfd7c9e9a436a6d430e170',1,'Cola_max::maximo()']]]
 ];

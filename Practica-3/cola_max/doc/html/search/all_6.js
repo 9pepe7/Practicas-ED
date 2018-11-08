@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['out',['out',['../classCola__max.html#a0a001e8eefb47ad204bf658893cf9f19',1,'Cola_max']]]
+  ['poner',['poner',['../classCola__max.html#ab30df843fc57f954c239b9daba484a73',1,'Cola_max::poner(T x)'],['../classCola__max.html#ab30df843fc57f954c239b9daba484a73',1,'Cola_max::poner(T x)']]]
 ];

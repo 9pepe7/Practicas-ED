@@ -31,8 +31,7 @@ private:
   * @page repColamaxvd Rep del TDA Colamax
   *
   */
-  vector<T> principal; /**< Vector con los elementos*/
-  vector<T> max;/**< Vector de maximos*/
+  vector< pair<T,T> > v; /**< Vector con los elementos*/
 
 public:
 
@@ -72,4 +71,6 @@ public:
   T maximo();
 
 };
+#include "Cola_max_vd.cpp"
+
 #endif

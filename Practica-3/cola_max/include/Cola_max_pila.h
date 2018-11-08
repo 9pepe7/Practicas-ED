@@ -5,9 +5,8 @@
   */
 #ifndef COLA_MAX_PILA_H
 #define COLA_MAX_PILA_H
-#include <stack>
+#include "PilaMax.h"
 using namespace std;
-
 /**
   * @brief T.D.A. Cola_max
   *
@@ -29,9 +28,8 @@ private:
   *
   */
 
-  stack<T> in; /**< Cola para inserciones */
-  stack<T> out;/**< Cola para extracciones y consultas*/
-  T max; /**< Maximo */
+  PilaMax<T> in; /**< Cola para inserciones */
+  PilaMax<T> out;/**< Cola para extracciones y consultas*/
 
 public:
 /**
@@ -69,11 +67,6 @@ public:
   */
   T maximo();
 
-private:
-/**
-  * @brief función que encuentra el máximo de la cola y modifica su miembro "max"
-  */
-  void buscaMaximo();
-
 };
+#include "Cola_max_pila.cpp"
 #endif

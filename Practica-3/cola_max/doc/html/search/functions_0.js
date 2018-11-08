@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buscamaximo',['buscaMaximo',['../classCola__max.html#ad181ad49338edd10e863348fdcdbf250',1,'Cola_max']]]
+  ['frente',['frente',['../classCola__max.html#ad24d6ded47e7696c53dd10e33cce403e',1,'Cola_max::frente()'],['../classCola__max.html#ad24d6ded47e7696c53dd10e33cce403e',1,'Cola_max::frente()']]]
 ];

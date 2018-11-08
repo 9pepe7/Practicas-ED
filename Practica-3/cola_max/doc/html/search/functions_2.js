@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maximo',['maximo',['../classCola__max.html#a3df6075351dfd7c9e9a436a6d430e170',1,'Cola_max::maximo()'],['../classCola__max.html#a3df6075351dfd7c9e9a436a6d430e170',1,'Cola_max::maximo()']]]
+  ['num_5felementos',['num_elementos',['../classCola__max.html#adb26d0a523133af1f48dca6febebf72e',1,'Cola_max::num_elementos()'],['../classCola__max.html#adb26d0a523133af1f48dca6febebf72e',1,'Cola_max::num_elementos()']]]
 ];
