@@ -11,7 +11,7 @@ using namespace std;
   * @brief T.D.A. PilaMax
   *
   * Una instancia del TDA PilaMax es, en efecto, una pila cuyos elementos son pares de tipo T.
-  * Además, se modificará con las inserciones para llevar constancia de su máximo en todo momento.
+  * Además, se modificará por si sola con las inserciones para llevar constancia de su máximo en todo momento.
   * Esta implementación contiene una pila de pares.
 
   * @author José Manuel Navarro Cuartero
@@ -40,10 +40,10 @@ public:
   void pop();
 
 /**
-  * @brief función que devuelve el tope de la pila de pares
-  * @return pair<T,T> una pareja de variables tipo T
+  * @brief función que devuelve elemento tope de la pila
+  * @return T elemento
   */
-  pair<T,T> top();
+  T top();
 
 /**
   * @brief función que devuelve true si está vacía la pila, y false si tiene algún par de elementos
@@ -56,6 +56,11 @@ public:
   * @return int Un entero con el tamaño de la pila actual
   */
   int size();
+/**
+  * @brief función que devuelve elemento máximo de la pila
+  * @return T elemento
+  */
+  T max();
 };
 #include "PilaMax.cpp"
 #endif

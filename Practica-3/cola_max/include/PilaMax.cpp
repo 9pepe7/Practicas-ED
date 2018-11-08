@@ -5,8 +5,8 @@ template <typename T>
 void PilaMax<T>::push(T x){
   pair<T,T> par (x,x);
   if(!empty()){
-    if(par.second<top().second)
-      par.second=top().second;
+    if(par.second<max())
+      par.second=max();
   }
   pila.push(par);
 }
@@ -17,8 +17,8 @@ void PilaMax<T>::pop(){
 }
 
 template <typename T>
-pair<T,T> PilaMax<T>::top(){
-  return pila.top();
+T PilaMax<T>::top(){
+  return pila.top().first;
 }
 
 template <typename T>
@@ -29,4 +29,9 @@ bool PilaMax<T>::empty(){
 template <typename T>
 int PilaMax<T>::size(){
   return pila.size();
+}
+
+template <typename T>
+T PilaMax<T>::max(){
+  return pila.top().second;
 }
