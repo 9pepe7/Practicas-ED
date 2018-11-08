@@ -12,7 +12,6 @@ all: $(BIN)/pruebacola_max
 documentacion:
 	doxygen doc/doxys/Doxyfile
 
-
 # ************ Compilación de módulos ************
 $(BIN)/pruebacola_max: $(SRC)/pruebacola_max.cpp $(includes)
 	$(CXX) -o $@ $< -I$(INC)
