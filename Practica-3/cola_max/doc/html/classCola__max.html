@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Colamax: Referencia de la plantilla de la Clase Cola_max&lt; T &gt;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,21 +30,18 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generado por Doxygen 1.8.14 -->
+<!-- Generado por Doxygen 1.8.13 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
-/* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Buscar');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */</script>
+</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -131,12 +128,12 @@ Atributos privados</h2></td></tr>
 class Cola_max&lt; T &gt;</h3>
 
 <p>T.D.A. <a class="el" href="classCola__max.html" title="T.D.A. Cola_max. ">Cola_max</a>. </p>
-<p>Una instancia del TDA <a class="el" href="classCola__max.html" title="T.D.A. Cola_max. ">Cola_max</a> es, a efectos prácticos, una cola (FIFO) de la que además se puede saber el máximo. Esta implementación contiene dos vectores, uno con sus miembros y el otro para el máximo. El primero actuará como un queue simple con sus miembros en orden. El segundo irá añadiendo los nuevos elementos también, pero además, será modificado si se añade un nuevo máximo.</p>
+<p>Una instancia del TDA <a class="el" href="classCola__max.html" title="T.D.A. Cola_max. ">Cola_max</a> es, a efectos prácticos, una cola (FIFO) de la que además se puede saber el máximo. Esta implementación contiene un vector de pares, uno con sus miembros y los máximos. El primer miembro de los pares, contendrá los elementos ordenados según su ingreso. El segundo llevará la cuenta de los máximos según entren nuevos miembros.</p>
 <dl class="section author"><dt>Autor</dt><dd>José Manuel Navarro Cuartero </dd>
 <dd>
 Emilio Calvo de Mora Mármol </dd></dl>
 <dl class="section date"><dt>Fecha</dt><dd>Noviembre 2018</dd></dl>
-<p>Una instancia del TDA <a class="el" href="classCola__max.html" title="T.D.A. Cola_max. ">Cola_max</a> es, a efectos practicos, una cola (FIFO) de la que además se puede saber el máximo. Esta implementación contiene dos pilas con sus miembros repartidos entre ambas, y una variable que contiene dicho máximo, que se modificará cuando se añada un maximo nuevo, o cuando se elimine dicho maximo.</p>
+<p>Una instancia del TDA <a class="el" href="classCola__max.html" title="T.D.A. Cola_max. ">Cola_max</a> es, a efectos practicos, una cola (FIFO) de la que además se puede saber el máximo. Esta implementación contiene dos objetos del TDA PilaMax con sus miembros repartidos entre ambas, que se repartirán las funciones de inserción, extracción y consulta.</p>
 <dl class="section author"><dt>Autor</dt><dd>José Manuel Navarro Cuartero </dd>
 <dd>
 Emilio Calvo de Mora Mármol </dd></dl>
@@ -446,7 +443,7 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Vector con los elementos </p>
+<p>Vector con los elementos y los maximos </p>
 
 </div>
 </div>
@@ -459,7 +456,7 @@ template&lt;class T &gt; </div>
 <hr class="footer"/><address class="footer"><small>
 Generado por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
+</a> 1.8.13
 </small></address>
 </body>
 </html>

@@ -13,9 +13,9 @@ using namespace std;
   * @brief T.D.A. Cola_max
   *
   * Una instancia del TDA Cola_max es, a efectos prácticos, una cola (FIFO) de la que además se puede saber el máximo.
-  * Esta implementación contiene dos vectores, uno con sus miembros y el otro para el máximo.
-  * El primero actuará como un queue simple con sus miembros en orden.
-  * El segundo irá añadiendo los nuevos elementos también, pero además, será modificado si se añade un nuevo máximo.
+  * Esta implementación contiene un vector de pares, uno con sus miembros y los máximos.
+  * El primer miembro de los pares, contendrá los elementos ordenados según su ingreso.
+  * El segundo llevará la cuenta de los máximos según entren nuevos miembros.
   *
   * @author José Manuel Navarro Cuartero
   * @author Emilio Calvo de Mora Mármol
@@ -31,7 +31,7 @@ private:
   * @page repColamaxvd Rep del TDA Colamax
   *
   */
-  vector< pair<T,T> > v; /**< Vector con los elementos*/
+  vector< pair<T,T> > v; /**< Vector con los elementos y los maximos*/
 
 public:
 

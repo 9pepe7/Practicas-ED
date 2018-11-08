@@ -11,7 +11,8 @@ using namespace std;
   * @brief T.D.A. PilaMax
   *
   * Una instancia del TDA PilaMax es, en efecto, una pila cuyos elementos son pares de tipo T.
-  * Esta implementación contiene una pila de parejas.
+  * Además, se modificará con las inserciones para llevar constancia de su máximo en todo momento.
+  * Esta implementación contiene una pila de pares.
 
   * @author José Manuel Navarro Cuartero
   * @author Emilio Calvo de Mora Mármol
@@ -52,7 +53,7 @@ public:
 
 /**
   * @brief función que devuelve el tamaño de la pila
-  * @return int una variable tamaño de la pila actual
+  * @return int Un entero con el tamaño de la pila actual
   */
   int size();
 };
