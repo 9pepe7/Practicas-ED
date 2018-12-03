@@ -33,7 +33,7 @@ private:
 public:
   Termino();
   Termino(string pal, vector<string> def);
-  Termino(Termino original);
+  Termino(const Termino &original);
 
   string getPalabra() const;
   vector<string> getDefiniciones() const;

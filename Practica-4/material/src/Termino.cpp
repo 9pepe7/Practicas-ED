@@ -11,7 +11,7 @@ Termino::Termino(string pal, vector<string> def){
   termino.first=pal;
   termino.second=def;
 }
-Termino::Termino(Termino original){
+Termino::Termino(const Termino &original){
   termino.first=original.getPalabra();
   termino.second=original.getDefiniciones();
 }

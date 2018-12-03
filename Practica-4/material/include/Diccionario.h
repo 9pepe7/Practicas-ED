@@ -8,6 +8,8 @@
 #define DICCIONARIO_H
 
 #include <iostream>
+#include <vector>
+#include <string>
 #include "Termino.h"
 #include <set>
 
@@ -34,15 +36,15 @@ private:
 public:
   Diccionario();
   Diccionario(set<Termino> dic);
-  Diccionario(Diccionario original);
+  Diccionario(const Diccionario &original);
 
-  vector<string> getDefiniciones() const;
+  vector<string> getDefiniciones(string pal) const;
   set<Termino> getTerminos() const;
   int getNumTerminos() const;
 
   void aniadirTermino(Termino t);
   void eliminarTermino(string pal);
-  Termino::const_iterator findTermino(string pal) const;
+  set<Termino>::const_iterator findTermino(string pal) const;
 
   Diccionario filtradoIntervalo(char ini, char fin) const;
   Diccionario filtradoClave(string clave) const;

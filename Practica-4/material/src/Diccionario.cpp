@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <string>
 #include "Termino.h"
 #include "Diccionario.h"
 
@@ -8,12 +10,12 @@ Diccionario::Diccionario(){}
 Diccionario::Diccionario(set<Termino> dic){
   dicc = dic;
 }
-Diccionario::Diccionario(Diccionario original){
+Diccionario::Diccionario(const Diccionario &original){
   dicc = original.getTerminos();
 }
 
-vector<string> Diccionario::getDefiniciones(string pal) const{ // Completar
-  return (findTermino(pal))->getDefiniciones();
+vector<string> Diccionario::getDefiniciones(string pal) const{
+  return findTermino(pal)->getDefiniciones();
 }
 set<Termino> Diccionario::getTerminos() const{
   return dicc;
@@ -28,7 +30,7 @@ void Diccionario::aniadirTermino(Termino t){
 void Diccionario::eliminarTermino(string pal){
   dicc.erase(findTermino(pal));
 }
-Termino::const_iterator findTermino(string pal) const{ // Completar
+set<Termino>::const_iterator Diccionario::findTermino(string pal) const{ // dicc.find pero feo Completar
   return begin();
 }
 
@@ -77,10 +79,13 @@ istream& operator>> (istream & is, Diccionario & d){
     Termino t;
     is >> t;
     set<Termino>::iterator it = d.dicc.find(t);
-    if(it == d.dicc.end())
+    if(it == d.dicc.end()){
       d.aniadirTermino(t);
-    else
-      it->aniadirDefinicion(t.getDefiniciones[0]);
+    }
+    else{
+      string pal = t.getDefiniciones()[0];
+      it->aniadirDefinicion(pal);
+    }
   }
-  return flujo;
+  return is;
 }
