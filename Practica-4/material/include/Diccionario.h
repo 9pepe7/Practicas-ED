@@ -43,8 +43,9 @@ public:
   int getNumTerminos() const;
 
   void aniadirTermino(Termino t);
-  void eliminarTermino(string pal);
+  void eliminarTermino(Termino t);
   set<Termino>::const_iterator findTermino(string pal) const;
+  set<Termino>::const_iterator findTermino(Termino t) const;
 
   Diccionario filtradoIntervalo(char ini, char fin) const;
   Diccionario filtradoClave(string clave) const;

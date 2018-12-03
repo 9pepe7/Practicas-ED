@@ -15,7 +15,11 @@ Diccionario::Diccionario(const Diccionario &original){
 }
 
 vector<string> Diccionario::getDefiniciones(string pal) const{
-  return findTermino(pal)->getDefiniciones();
+  vector<string> res;
+  set<Termino>::const_iterator it=findTermino(pal);
+  if(it != dicc.end())
+    res=it->getDefiniciones();
+  return res;
 }
 set<Termino> Diccionario::getTerminos() const{
   return dicc;
@@ -27,11 +31,21 @@ int Diccionario::getNumTerminos() const{ // Completar
 void Diccionario::aniadirTermino(Termino t){
   dicc.insert(t);
 }
-void Diccionario::eliminarTermino(string pal){
-  dicc.erase(findTermino(pal));
+void Diccionario::eliminarTermino(Termino t){
+  set<Termino>::const_iterator it=findTermino(t);
+  if(it != dicc.end())
+    dicc.erase(it);
 }
-set<Termino>::const_iterator Diccionario::findTermino(string pal) const{ // dicc.find pero feo Completar
-  return begin();
+set<Termino>::const_iterator Diccionario::findTermino(string pal) const{ // dicc.find pero feo
+  set<Termino>::const_iterator it=dicc.begin();
+  for(bool salir=false; it!=dicc.end()&&!salir; ++it){
+    if(it->getPalabra() == pal)
+      salir=true;
+  }
+  return it;
+}
+set<Termino>::const_iterator Diccionario::findTermino(Termino t) const{ // Hay que buscar uno a uno por la palabra
+  return findTermino(t.getPalabra());
 }
 
 Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{ // Completar
@@ -76,15 +90,17 @@ ostream& operator<< (ostream & os, const Diccionario & d){ // Esta viene en el p
 istream& operator>> (istream & is, Diccionario & d){
   while(!is.eof())
   {
-    Termino t;
-    is >> t;
-    set<Termino>::iterator it = d.dicc.find(t);
-    if(it == d.dicc.end()){
-      d.aniadirTermino(t);
+    Termino aux;
+    is >> aux;
+    set<Termino>::iterator it = d.findTermino(aux); // ESTE FIND ESTA MAL, PORQUE BUSCA TERMINOS COMPLETOS, NO PALABRAS, SIMEPRE SALDRA END
+    if(it == d.dicc.end()){ // Si es un termino nuevo
+      d.aniadirTermino(aux);
     }
-    else{
-      string pal = t.getDefiniciones()[0];
-      it->aniadirDefinicion(pal);
+    else{ // Si ese termino ya estaba, se añade la definicion
+      Termino t = (*it);
+      t.aniadirDefinicion(aux.getDefiniciones()[0]);
+      d.eliminarTermino(aux);
+      d.aniadirTermino(t);
     }
   }
   return is;
