@@ -28,23 +28,27 @@ using namespace std;
   */
 
 class Diccionario{
+private:
+  set<Termino> dicc;
+
+public:
   Diccionario();
   Diccionario(set<Termino>);
   Diccionario(Diccionario original);
 
-  vector<string> getDefiniciones();
-  set<Termino> getTerminos();
-  int getNumTerminos();
+  vector<string> getDefiniciones() const;
+  set<Termino> getTerminos() const;
+  int getNumTerminos() const;
 
   void aniadirTermino(Termino t);
   void eliminarTermino(string pal);
 
-  Diccionario filtradoIntervalo(char ini, char fin);
-  Diccionario filtradoClave(string clave);
+  Diccionario filtradoIntervalo(char ini, char fin) const;
+  Diccionario filtradoClave(string clave) const;
 
-  int totalDefininiciones();
-  int maxDefiniciones();
-  int promedioDefiniciones();
+  int totalDefininiciones() const;
+  int maxDefiniciones() const;
+  int promedioDefiniciones() const;
 
   typedef set<Termino>::iterator iterator;
   typedef set<Termino>::const_iterator const_iterator;
