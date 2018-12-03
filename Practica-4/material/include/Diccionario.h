@@ -33,7 +33,7 @@ private:
 
 public:
   Diccionario();
-  Diccionario(set<Termino>);
+  Diccionario(set<Termino> dic);
   Diccionario(Diccionario original);
 
   vector<string> getDefiniciones() const;
@@ -42,6 +42,7 @@ public:
 
   void aniadirTermino(Termino t);
   void eliminarTermino(string pal);
+  Termino::const_iterator findTermino(string pal) const;
 
   Diccionario filtradoIntervalo(char ini, char fin) const;
   Diccionario filtradoClave(string clave) const;
