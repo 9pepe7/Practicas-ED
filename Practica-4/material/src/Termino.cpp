@@ -1,3 +1,8 @@
+#include <iostream>
+#include "Termino.h"
+
+using namespace std;
+
 Termino::Termino(){
   termino.first="";
 }
