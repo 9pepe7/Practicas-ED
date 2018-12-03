@@ -3,6 +3,7 @@
   * @brief Fichero cabecera del TDA Termino
   *
   */
+
 #ifndef TERMINO_H
 #define TERMINO_H
 
@@ -34,9 +35,9 @@ public:
   Termino(string pal, vector<string> def);
   Termino(Termino original);
 
-  string getPalabra();
-  vector<string> getDefiniciones();
-  int getNumDef();
+  string getPalabra() const;
+  vector<string> getDefiniciones() const;
+  int getNumDef() const;
 
   void setPalabra(string pal);
   void aniadirDefinicion(string def);

@@ -16,13 +16,13 @@ Termino::Termino(Termino original){
   termino.second=original.getDefiniciones();
 }
 
-string Termino::getPalabra(){
+string Termino::getPalabra() const{
   return termino.first;
 }
-vector<string> Termino::getDefiniciones(){
+vector<string> Termino::getDefiniciones() const{
   return termino.second;
 }
-int Termino::getNumDef(){
+int Termino::getNumDef() const{
   return termino.second.size();
 }
 
