@@ -92,7 +92,7 @@ istream& operator>> (istream & is, Diccionario & d){
   {
     Termino aux;
     is >> aux;
-    set<Termino>::iterator it = d.findTermino(aux); // ESTE FIND ESTA MAL, PORQUE BUSCA TERMINOS COMPLETOS, NO PALABRAS, SIMEPRE SALDRA END
+    set<Termino>::iterator it = d.findTermino(aux);
     if(it == d.dicc.end()){ // Si es un termino nuevo
       d.aniadirTermino(aux);
     }
