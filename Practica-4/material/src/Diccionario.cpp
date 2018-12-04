@@ -24,8 +24,8 @@ vector<string> Diccionario::getDefiniciones(string pal) const{
 set<Termino> Diccionario::getTerminos() const{
   return dicc;
 }
-int Diccionario::getNumTerminos() const{ // Completar
-  return 0;
+int Diccionario::getNumTerminos() const{
+  return dicc.size();
 }
 
 void Diccionario::aniadirTermino(Termino t){
@@ -50,21 +50,48 @@ set<Termino>::const_iterator Diccionario::findTermino(Termino t) const{ // Hay q
 
 Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{ // Completar
   Diccionario res;
+  if(ini >= 'A' && ini <= 'Z')
+    ini+=32;
+  if(fin >= 'A' && fin <= 'Z')
+    fin+=32;
+  if(ini > fin){
+    char aux = ini;
+    ini = fin;
+    fin = aux;
+  }
+
+  //ESTOY HACIENDO ESTO
+
   return res;
+}
+
+void Diccionario::aniadirDefinicion(int i, string def)
+{
+  dicc[i].AniadirDefinicion(def);
 }
 Diccionario Diccionario::filtradoClave(string clave) const{ // Completar
   Diccionario res;
   return res;
 }
 
-int Diccionario::totalDefininiciones() const{ // Completar
-  return 0;
+int Diccionario::totalDefininiciones() const{
+  int n=0;
+  for(vector<set>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
+    n+=it->getNumDef();
+  }
+  return n;
 }
-int Diccionario::maxDefiniciones() const{ // Completar
-  return 0;
+int Diccionario::maxDefiniciones() const{
+  int max=0;
+  for(vector<set>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
+    if(it->getNumDef() > max)
+      max=it->getNumDef();
+  }
+  return max;
 }
-int Diccionario::promedioDefiniciones() const{ // Completar
-  return 0;
+int Diccionario::promedioDefiniciones() const{
+  double n=totalDefininiciones();
+  return n/getNumTerminos();
 }
 
 Diccionario::iterator Diccionario::begin(){
