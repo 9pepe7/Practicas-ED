@@ -21,11 +21,11 @@ int main(int argc, char * argv[]){
   f>>mi_diccionario; //Cargamos en memoria el diccionario
   cout << "El diccionario ha sido cargado" << endl;
   //Usamos un iterador para recorrer los terminos del diccionario e imprimirlos
-  //cout << mi_diccionario;
+  cout << mi_diccionario << endl;
 
   // Exhibir aqui la funcionalidad programada para el TDA Diccionario / TDA Termino
   //  - Obtener las definiciones asociadas a una palabra
-  /*string palabra;
+  string palabra;
   cout << "Sobre que palabra desea obtener sus definiciones? -> ";
   cin >> palabra;
   vector<string> defs = mi_diccionario.getDefiniciones(palabra);
@@ -35,14 +35,14 @@ int main(int argc, char * argv[]){
     cin >> palabra;
     defs = mi_diccionario.getDefiniciones(palabra);
   }
-  cout << "Las definiciones de su palabra " << palabra << " son:" << endl;
+  cout << "Las definiciones de su palabra \"" << palabra << "\" son:" << endl;
   for(vector<string>::iterator it=defs.begin(); it!=defs.end();++it){
     cout << "--> " << *it << endl;
-  }*/
+  }
 
   //  - Obtener el (sub)diccionario de términos comprendidos en [caracter_inicial, caracter_final]
-  /*char c1, c2;
-  cout << "Que subdiccionario de terminos comprendidos entre dos caracteres desea obtener?" << endl;
+  char c1, c2;
+  cout << endl << "Que subdiccionario de terminos comprendidos entre dos caracteres desea obtener?" << endl;
   cout << "Primer caracter -> ";
   cin >> c1;
   cout << "Segundo caracter -> ";
@@ -55,11 +55,11 @@ int main(int argc, char * argv[]){
     cin >> c2;
   }
   Diccionario sub1 = mi_diccionario.filtradoIntervalo(c1,c2);
-  cout << "El subdiccionario obtenido es:" << endl;
-  cout << sub1;*/
+  cout << endl << "El subdiccionario obtenido es:" << endl;
+  cout << endl << sub1 << endl;
 
   //  - Obtener el (sub)diccionario de términos asociados a una palabra clave. Ejemplo: el diccionario de terminos asociados a "color"
-  /*string clave;
+  string clave;
   cout << "Que subdiccionario de terminos asociados a una palabra clave desea obtener?" << endl;
   cout << "Palabra clave -> ";
   cin >> clave;
@@ -70,14 +70,14 @@ int main(int argc, char * argv[]){
     cin >> clave;
     sub2 = mi_diccionario.filtradoClave(clave);
   }
-  cout << "Estos son los terminos que la contienen:" << endl;
-  cout << sub2;*/
+  cout << endl << "Estos son los terminos que la contienen:" << endl;
+  cout << sub2;
 
   //  - Obtener el numero total de definiciones, el maximo de definiciones asociadas a una unica palabra y el promedio de definiciones por palabra
   //  - Cualquier otra funcionalidad que considereis de interes
-  cout << "El diccionario tiene " << mi_diccionario.getNumTerminos() << " palabras almacenadas." << endl;
+  cout << endl << "El diccionario tiene " << mi_diccionario.getNumTerminos() << " palabras almacenadas." << endl;
   cout << "El numero total de definiciones es -> " << mi_diccionario.totalDefininiciones() << endl;
   cout << "El maximo de definiciones asociadas a una unica palabra es -> " << mi_diccionario.maxDefiniciones() << endl;
   cout << "Y esa palabra es -> " << mi_diccionario.maxPal() << endl;
-  cout << "Por ultimo, el promedio de definiciones por palabra es de -> " << mi_diccionario.promedioDefiniciones() << endl;
+  cout << "Por ultimo, el promedio de definiciones por palabra es de -> " << mi_diccionario.promedioDefiniciones() << endl << endl;
 }

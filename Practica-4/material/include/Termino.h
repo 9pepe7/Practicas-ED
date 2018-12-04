@@ -28,7 +28,7 @@ using namespace std;
 
 class Termino {
 private:
-  pair<string,vector<string>> termino; /**< Par con la palabra y sus definiciones */
+  pair<string,vector<string>> termino; /**< Par con la palabra y un vector con sus definiciones */
 
 public:
   Termino();

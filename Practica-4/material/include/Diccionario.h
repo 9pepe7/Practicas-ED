@@ -31,7 +31,7 @@ using namespace std;
 
 class Diccionario{
 private:
-  set<Termino> dicc;
+  set<Termino> dicc; /**< Set con los terminos ordenados alfabeticamente */
 
 public:
   Diccionario();
