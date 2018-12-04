@@ -48,9 +48,10 @@ set<Termino>::const_iterator Diccionario::findTermino(Termino t) const{ // Hay q
   return findTermino(t.getPalabra());
 }
 
-Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{ // Completar
+Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{
   Diccionario res;
-  if(ini >= 'A' && ini <= 'Z')
+  set<Termino>::const_iterator it;
+  if(ini >= 'A' && ini <= 'Z') // Transformamos a minuscula
     ini+=32;
   if(fin >= 'A' && fin <= 'Z')
     fin+=32;
@@ -59,31 +60,37 @@ Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{ // Complet
     ini = fin;
     fin = aux;
   }
-
-  //ESTOY HACIENDO ESTO
-
+  for(it=dicc.begin(); it->getPalabra()[0] < ini; ++it){} // Colocamos el iterador en la primera palabra buena
+  while( it->getPalabra()[0] < (fin+1) && it!=dicc.end() )
+    res.aniadirTermino(*it);
   return res;
 }
-
-void Diccionario::aniadirDefinicion(int i, string def)
-{
-  dicc[i].AniadirDefinicion(def);
-}
-Diccionario Diccionario::filtradoClave(string clave) const{ // Completar
+Diccionario Diccionario::filtradoClave(string clave) const{
   Diccionario res;
+  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
+    Termino t;
+    t.setPalabra(it->getPalabra());
+    for(Termino::const_iterator it2 = it->begin(); it2!=it->end(); ++it2){
+      std::size_t encontrada = it2->find(clave); // Busca la palabra en la definicion
+      if (encontrada != string::npos) // Si sí la encuentra, la guarda
+        t.aniadirDefinicion(*it2);
+    }
+    if(t.getNumDef()>0) // Si se guardó alguna definicion, se guarda el término
+      res.aniadirTermino(t);
+  }
   return res;
 }
 
 int Diccionario::totalDefininiciones() const{
   int n=0;
-  for(vector<set>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
+  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
     n+=it->getNumDef();
   }
   return n;
 }
 int Diccionario::maxDefiniciones() const{
   int max=0;
-  for(vector<set>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
+  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
     if(it->getNumDef() > max)
       max=it->getNumDef();
   }
