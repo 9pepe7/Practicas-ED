@@ -3,15 +3,15 @@
 
 using namespace std;
 
-Termino::Termino(){
+Termino::Termino(){ // Constructor por defecto
   termino.first="";
 }
 
-Termino::Termino(string pal, vector<string> def){
+Termino::Termino(string pal, vector<string> def){ // Constructor por parametros
   termino.first=pal;
   termino.second=def;
 }
-Termino::Termino(const Termino &original){
+Termino::Termino(const Termino &original){ // Constructor por copia
   termino.first=original.getPalabra();
   termino.second=original.getDefiniciones();
 }
@@ -22,20 +22,20 @@ string Termino::getPalabra() const{
 vector<string> Termino::getDefiniciones() const{
   return termino.second;
 }
-int Termino::getNumDef() const{
+int Termino::getNumDef() const{ // Numero de definiciones de la palabra
   return termino.second.size();
 }
-string Termino::getDefinicion() const{
+string Termino::getDefinicion() const{ // Primera definicion
   return termino.second[0];
 }
-char Termino::getInicial() const{
+char Termino::getInicial() const{ // Letra inicial
   return termino.first[0];
 }
 
 void Termino::setPalabra(string pal){
   termino.first=pal;
 }
-void Termino::aniadirDefinicion(string def){
+void Termino::aniadirDefinicion(string def){ // Se suma una definicion más
   termino.second.push_back(def);
 }
 
@@ -67,6 +67,6 @@ istream& operator>> (istream & is, Termino & t){ // Pilla una linea entera, pala
   t.aniadirDefinicion(pal);
   return is;
 }
-bool Termino::operator< (const Termino &t) const{
+bool Termino::operator< (const Termino &t) const{ // Booleano para poder ordenar los terminos en el set
     return termino.first < t.getPalabra();
 }

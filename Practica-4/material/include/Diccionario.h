@@ -40,7 +40,7 @@ public:
 
   typedef set<Termino>::iterator iterator;
   typedef set<Termino>::const_iterator const_iterator;
-  
+
   vector<string> getDefiniciones(string pal) const;
   set<Termino> getTerminos() const;
   int getNumTerminos() const;
@@ -56,7 +56,8 @@ public:
 
   int totalDefininiciones() const;
   int maxDefiniciones() const;
-  int promedioDefiniciones() const;
+  string maxPal(int = 0) const;
+  double promedioDefiniciones() const;
   bool sonletras(const char &c1, const char &c2) const;
 
   Diccionario::iterator begin();
