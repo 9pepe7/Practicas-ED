@@ -25,6 +25,9 @@ vector<string> Termino::getDefiniciones() const{
 int Termino::getNumDef() const{
   return termino.second.size();
 }
+string Termino::getDefinicion() const{
+  return termino.second[0];
+}
 
 void Termino::setPalabra(string pal){
   termino.first=pal;

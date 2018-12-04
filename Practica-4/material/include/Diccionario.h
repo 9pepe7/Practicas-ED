@@ -44,6 +44,7 @@ public:
 
   void aniadirTermino(Termino t);
   void eliminarTermino(Termino t);
+  void eliminarTermino(set<Termino>::iterator it);
   set<Termino>::const_iterator findTermino(string pal) const;
   set<Termino>::const_iterator findTermino(Termino t) const;
 
@@ -53,6 +54,7 @@ public:
   int totalDefininiciones() const;
   int maxDefiniciones() const;
   int promedioDefiniciones() const;
+  bool sonletras(const char &c1, const char &c2) const;
 
   typedef set<Termino>::iterator iterator;
   typedef set<Termino>::const_iterator const_iterator;

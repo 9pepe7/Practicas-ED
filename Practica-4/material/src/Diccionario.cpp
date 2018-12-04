@@ -36,13 +36,16 @@ void Diccionario::eliminarTermino(Termino t){
   if(it != dicc.end())
     dicc.erase(it);
 }
+void Diccionario::eliminarTermino(set<Termino>::iterator it){
+  dicc.erase(it);
+}
 set<Termino>::const_iterator Diccionario::findTermino(string pal) const{ // dicc.find pero feo
-  set<Termino>::const_iterator it=dicc.begin();
-  for(bool salir=false; it!=dicc.end()&&!salir; ++it){
-    if(it->getPalabra() == pal)
-      salir=true;
+  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
+    if(it->getPalabra() == pal){
+      return it;
+    }
   }
-  return it;
+  return dicc.end();
 }
 set<Termino>::const_iterator Diccionario::findTermino(Termino t) const{ // Hay que buscar uno a uno por la palabra
   return findTermino(t.getPalabra());
@@ -100,6 +103,14 @@ int Diccionario::promedioDefiniciones() const{
   double n=totalDefininiciones();
   return n/getNumTerminos();
 }
+bool Diccionario::sonletras(const char &c1, const char &c2) const{
+  bool res=true;
+  if( (c1<'A' || c1>'Z') && (c1<'a' || c1>'z') )
+    res=false;
+  if( (c2<'A' || c2>'Z') && (c2<'a' || c2>'z') )
+    res=false;
+  return res;
+}
 
 Diccionario::iterator Diccionario::begin(){
   return dicc.begin();
@@ -122,19 +133,19 @@ ostream& operator<< (ostream & os, const Diccionario & d){ // Esta viene en el p
   return os;
 }
 istream& operator>> (istream & is, Diccionario & d){
-  while(!is.eof())
-  {
-    Termino aux;
-    is >> aux;
-    set<Termino>::iterator it = d.findTermino(aux);
+  while(!is.eof()){
+    Termino nuevo;
+    is >> nuevo;
+    set<Termino>::iterator it = d.findTermino(nuevo);
     if(it == d.dicc.end()){ // Si es un termino nuevo
-      d.aniadirTermino(aux);
+      if(nuevo.getPalabra()!="")
+        d.aniadirTermino(nuevo);
     }
     else{ // Si ese termino ya estaba, se añade la definicion
-      Termino t = (*it);
-      t.aniadirDefinicion(aux.getDefiniciones()[0]);
-      d.eliminarTermino(aux);
-      d.aniadirTermino(t);
+      Termino antiguo = (*it);
+      d.eliminarTermino(it);
+      antiguo.aniadirDefinicion(nuevo.getDefinicion());
+      d.aniadirTermino(antiguo);
     }
   }
   return is;
