@@ -16,8 +16,8 @@ Diccionario::Diccionario(const Diccionario &original){
 
 vector<string> Diccionario::getDefiniciones(string pal) const{
   vector<string> res;
-  set<Termino>::const_iterator it=findTermino(pal);
-  if(it != dicc.end())
+  Diccionario::const_iterator it=findTermino(pal);
+  if(it != end())
     res=it->getDefiniciones();
   return res;
 }
@@ -32,28 +32,28 @@ void Diccionario::aniadirTermino(Termino t){
   dicc.insert(t);
 }
 void Diccionario::eliminarTermino(Termino t){
-  set<Termino>::const_iterator it=findTermino(t);
-  if(it != dicc.end())
+  Diccionario::const_iterator it=findTermino(t);
+  if(it != end())
     dicc.erase(it);
 }
-void Diccionario::eliminarTermino(set<Termino>::iterator it){
+void Diccionario::eliminarTermino(Diccionario::iterator it){
   dicc.erase(it);
 }
-set<Termino>::const_iterator Diccionario::findTermino(string pal) const{ // dicc.find pero feo
-  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
+Diccionario::const_iterator Diccionario::findTermino(string pal) const{ // dicc.find pero feo
+  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){
     if(it->getPalabra() == pal){
       return it;
     }
   }
-  return dicc.end();
+  return end();
 }
-set<Termino>::const_iterator Diccionario::findTermino(Termino t) const{ // Hay que buscar uno a uno por la palabra
+Diccionario::const_iterator Diccionario::findTermino(Termino t) const{ // Hay que buscar uno a uno por la palabra
   return findTermino(t.getPalabra());
 }
 
 Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{
   Diccionario res;
-  set<Termino>::const_iterator it;
+  Diccionario::const_iterator it;
   if(ini >= 'A' && ini <= 'Z') // Transformamos a minuscula
     ini+=32;
   if(fin >= 'A' && fin <= 'Z')
@@ -63,14 +63,14 @@ Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{
     ini = fin;
     fin = aux;
   }
-  for(it=dicc.begin(); it->getPalabra()[0] < ini; ++it){} // Colocamos el iterador en la primera palabra buena
-  while( it->getPalabra()[0] <= fin)
+  for(it=begin(); it->getInicial() < ini && it!=end(); ++it){} // Colocamos el iterador en la primera palabra buena
+  while( it->getInicial() <= fin && it!=end())
     res.aniadirTermino(*it);
   return res;
 }
 Diccionario Diccionario::filtradoClave(string clave) const{
   Diccionario res;
-  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){ // Itero sobre todos los terminos del diccionario
+  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){ // Itero sobre todos los terminos del diccionario
     Termino t; // Creo un termino vacio
     for(Termino::const_iterator it2 = it->begin(); it2!=it->end(); ++it2){ // Itero sobre las def del termino en el que se encuentra "it"
       if (it2->find(clave) != string::npos) // Busca si aparece la palabra en la definicion en la que se encuentra "it2"
@@ -86,14 +86,14 @@ Diccionario Diccionario::filtradoClave(string clave) const{
 
 int Diccionario::totalDefininiciones() const{
   int n=0;
-  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
+  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){
     n+=it->getNumDef();
   }
   return n;
 }
 int Diccionario::maxDefiniciones() const{
   int max=0;
-  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
+  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){
     if(it->getNumDef() > max)
       max=it->getNumDef();
   }
@@ -136,8 +136,8 @@ istream& operator>> (istream & is, Diccionario & d){
   while(!is.eof()){
     Termino nuevo;
     is >> nuevo;
-    set<Termino>::iterator it = d.findTermino(nuevo);
-    if(it == d.dicc.end()){ // Si es un termino nuevo
+    Diccionario::iterator it = d.findTermino(nuevo);
+    if(it == d.end()){ // Si es un termino nuevo
       if(nuevo.getPalabra()!="")
         d.aniadirTermino(nuevo);
     }

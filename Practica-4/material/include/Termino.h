@@ -39,6 +39,7 @@ public:
   vector<string> getDefiniciones() const;
   int getNumDef() const;
   string getDefinicion() const;
+  char getInicial() const;
 
   void setPalabra(string pal);
   void aniadirDefinicion(string def);

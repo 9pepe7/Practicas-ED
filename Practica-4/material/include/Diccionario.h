@@ -38,15 +38,18 @@ public:
   Diccionario(set<Termino> dic);
   Diccionario(const Diccionario &original);
 
+  typedef set<Termino>::iterator iterator;
+  typedef set<Termino>::const_iterator const_iterator;
+  
   vector<string> getDefiniciones(string pal) const;
   set<Termino> getTerminos() const;
   int getNumTerminos() const;
 
   void aniadirTermino(Termino t);
   void eliminarTermino(Termino t);
-  void eliminarTermino(set<Termino>::iterator it);
-  set<Termino>::const_iterator findTermino(string pal) const;
-  set<Termino>::const_iterator findTermino(Termino t) const;
+  void eliminarTermino(Diccionario::iterator it);
+  Diccionario::const_iterator findTermino(string pal) const;
+  Diccionario::const_iterator findTermino(Termino t) const;
 
   Diccionario filtradoIntervalo(char ini, char fin) const;
   Diccionario filtradoClave(string clave) const;
@@ -56,8 +59,6 @@ public:
   int promedioDefiniciones() const;
   bool sonletras(const char &c1, const char &c2) const;
 
-  typedef set<Termino>::iterator iterator;
-  typedef set<Termino>::const_iterator const_iterator;
   Diccionario::iterator begin();
   Diccionario::const_iterator begin() const;
   Diccionario::iterator end();

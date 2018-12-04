@@ -28,6 +28,9 @@ int Termino::getNumDef() const{
 string Termino::getDefinicion() const{
   return termino.second[0];
 }
+char Termino::getInicial() const{
+  return termino.first[0];
+}
 
 void Termino::setPalabra(string pal){
   termino.first=pal;
