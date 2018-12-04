@@ -33,16 +33,16 @@ void Termino::aniadirDefinicion(string def){
   termino.second.push_back(def);
 }
 
-Termino::iterator begin(){
+Termino::iterator Termino::begin(){
   return termino.second.begin();
 }
-Termino::const_iterator begin() const{
+Termino::const_iterator Termino::begin() const{
   return termino.second.begin();
 }
-Termino::iterator end(){
+Termino::iterator Termino::end(){
   return termino.second.end();
 }
-Termino::const_iterator end() const{
+Termino::const_iterator Termino::end() const{
   return termino.second.end();
 }
 
@@ -57,7 +57,10 @@ istream& operator>> (istream & is, Termino & t){ // Pilla una linea entera, pala
   string pal;
   getline(is,pal,';');
   t.setPalabra(pal);
-  getline(in,pal);
-  ter.AniadirDefinicion(pal);
-  return in;
+  getline(is,pal);
+  t.aniadirDefinicion(pal);
+  return is;
+}
+bool Termino::operator< (const Termino &t) const{
+    return termino.first < t.getPalabra();
 }

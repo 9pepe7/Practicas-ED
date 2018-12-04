@@ -51,6 +51,7 @@ public:
 
   friend ostream& operator<< (ostream & os, const Termino & t);
   friend istream& operator>> (istream & is, Termino & t);
+  bool operator< (const Termino &t) const;
 };
 
 #endif

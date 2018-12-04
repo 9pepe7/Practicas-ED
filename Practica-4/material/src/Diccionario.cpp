@@ -61,7 +61,7 @@ Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{
     fin = aux;
   }
   for(it=dicc.begin(); it->getPalabra()[0] < ini; ++it){} // Colocamos el iterador en la primera palabra buena
-  while( it->getPalabra()[0] < (fin+1) && it!=dicc.end() )
+  while( it->getPalabra()[0] <= fin)
     res.aniadirTermino(*it);
   return res;
 }
