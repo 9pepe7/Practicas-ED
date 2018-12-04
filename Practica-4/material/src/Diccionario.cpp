@@ -67,16 +67,16 @@ Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{
 }
 Diccionario Diccionario::filtradoClave(string clave) const{
   Diccionario res;
-  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){
-    Termino t;
-    t.setPalabra(it->getPalabra());
-    for(Termino::const_iterator it2 = it->begin(); it2!=it->end(); ++it2){
-      std::size_t encontrada = it2->find(clave); // Busca la palabra en la definicion
-      if (encontrada != string::npos) // Si sí la encuentra, la guarda
-        t.aniadirDefinicion(*it2);
+  for(set<Termino>::const_iterator it=dicc.begin(); it!=dicc.end(); ++it){ // Itero sobre todos los terminos del diccionario
+    Termino t; // Creo un termino vacio
+    for(Termino::const_iterator it2 = it->begin(); it2!=it->end(); ++it2){ // Itero sobre las def del termino en el que se encuentra "it"
+      if (it2->find(clave) != string::npos) // Busca si aparece la palabra en la definicion en la que se encuentra "it2"
+        t.aniadirDefinicion(*it2); // Si sí la encuentra, la guarda, si no, find devuelve un size_t==npos
     }
-    if(t.getNumDef()>0) // Si se guardó alguna definicion, se guarda el término
-      res.aniadirTermino(t);
+    if(t.getNumDef()>0){ // Si se guardó alguna definicion, se guarda el término
+      t.setPalabra(it->getPalabra()); // Le pongo su palabra
+      res.aniadirTermino(t); // Y lo añado al diccionario
+    }
   }
   return res;
 }
