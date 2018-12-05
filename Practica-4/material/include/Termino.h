@@ -31,21 +31,69 @@ private:
   pair<string,vector<string>> termino; /**< Par con la palabra y un vector con sus definiciones */
 
 public:
+  /**
+    * @brief Constructor por defecto de la clase.
+    * @details Crea un término vacío.
+    */
   Termino();
+
+  /**
+    * @brief Constructor por parámetros
+    * @param pal Palabra
+    * @param def Vector de definiciones
+    */
   Termino(string pal, vector<string> def);
+
+  /**
+    * @brief Constructor por copia
+    * @param Original Termino que se copia
+    */
   Termino(const Termino &original);
 
+  /**
+    * @brief Devuelve la palabra
+    * @return string La palabra del termino
+    */
   string getPalabra() const;
+
+  /**
+    * @brief Devuelve las definiciones de un termino
+    * @return Vector con las definiciones del termino
+    */
   vector<string> getDefiniciones() const;
+
+  /**
+    * @brief Devuelve el numero de definiciones que tiene el termino
+    * @return Un entero positivo con el numero de definiciones
+    */
   int getNumDef() const;
+
+  /**
+    * @brief Devuelve la primera definicion de un termino
+    * @return string Dicha definicion
+    */
   string getDefinicion() const;
+
+  /**
+    * @brief Devuelve la letra inicial de un termino
+    * @return char Dicha letra
+    */
   char getInicial() const;
 
+  /**
+    * @brief Asigna una palabra pal al termino
+    * @param pal Palabra que es asignada
+    */
   void setPalabra(string pal);
+
+  /**
+    * @brief Añade una definicion al termino
+    * @param def Definicion que se añade
+    */
   void aniadirDefinicion(string def);
 
-  typedef vector<string>::iterator iterator;
-  typedef vector<string>::const_iterator const_iterator;
+  typedef vector<string>::iterator iterator; /**< Iterator de la clase Termino */
+  typedef vector<string>::const_iterator const_iterator; /**< Iterator constante de la clase Termino */
   Termino::iterator begin();
   Termino::const_iterator begin() const;
   Termino::iterator end();
