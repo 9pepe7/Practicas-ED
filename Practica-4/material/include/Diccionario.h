@@ -16,7 +16,7 @@
 using namespace std;
 
 /**
-  *  @brief T.D.A. Diccionario
+  * @brief T.D.A. Diccionario
   *
   * Una instancia del tipo de datos abstracto Diccionario es un objeto
   * que contiene set de la stl de términos del T.D.A. Termino, incluido en
@@ -24,13 +24,25 @@ using namespace std;
   * Lo representamos como una lista  ordenada alfabéticamente con todos los Terminos.
   *
   *
-  * @author Jose Manuel Navarro Cuartero
+  * @author José Manuel Navarro Cuartero
   * @author Emilio Calvo de Mora Mármol
   * @date Diciembre 2018
   */
 
 class Diccionario{
 private:
+  /**
+    * @page repDiccionario Rep del TDA Diccionario
+    *
+    * @section invDiccionario Invariante de la representación
+    *
+    * El invariante es que sus terminos, de existir, estarán siempre ordenados, y no podrán existir dos Terminos con la misma palabra.
+    *
+    * @section funcDiccionario  Funcion de Abstracción
+    *
+    * Un objeto de nuestro TDA Diccionario representa un conjunto de terminos de tipo Termino ordenados alfabéticamente
+    *
+    */
   set<Termino> dicc; /**< Set con los terminos ordenados alfabeticamente */
 
 public:
@@ -38,8 +50,8 @@ public:
   Diccionario(set<Termino> dic);
   Diccionario(const Diccionario &original);
 
-  typedef set<Termino>::iterator iterator;
-  typedef set<Termino>::const_iterator const_iterator;
+  typedef set<Termino>::iterator iterator; /**< Iterador de la clase basado en el tipo set subyacente */
+  typedef set<Termino>::const_iterator const_iterator; /**< Iterador constante de la clase basado en el tipo set subyacente */
 
   vector<string> getDefiniciones(string pal) const;
   set<Termino> getTerminos() const;

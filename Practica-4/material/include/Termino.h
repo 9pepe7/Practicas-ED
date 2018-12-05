@@ -28,6 +28,19 @@ using namespace std;
 
 class Termino {
 private:
+  /**
+   * @page repTermino Rep del TDA Termino
+   *
+   * @section invTermino Invariante de la representación
+   *
+   * El invariante es que para cada Termino, existe una palabra y una definición, al menos.
+   *
+   *
+   * @section funcTermino  Funcion de Abstracción
+   *
+   * Un objeto de nuestro TDA Termino representa una palabra y una o más definiciones asociadas a la misma.
+   *
+   */
   pair<string,vector<string>> termino; /**< Par con la palabra y un vector con sus definiciones */
 
 public:
@@ -92,8 +105,8 @@ public:
     */
   void aniadirDefinicion(string def);
 
-  typedef vector<string>::iterator iterator; /**< Iterator de la clase Termino */
-  typedef vector<string>::const_iterator const_iterator; /**< Iterator constante de la clase Termino */
+  typedef vector<string>::iterator iterator; /**< Iterador de la clase basado en el tipo vector subyacente */
+  typedef vector<string>::const_iterator const_iterator; /**< Iterador constante de la clase basado en el tipo vector subyacente */
   Termino::iterator begin();
   Termino::const_iterator begin() const;
   Termino::iterator end();
