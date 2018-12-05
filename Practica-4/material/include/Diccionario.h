@@ -46,38 +46,150 @@ private:
   set<Termino> dicc; /**< Set con los terminos ordenados alfabeticamente */
 
 public:
+
+  /**
+    * @brief Constructor por defecto de la clase. Crea el diccionario vacío
+    */
   Diccionario();
+
+ /**
+   * @brief Constructor de la clase
+   * @param vec El vector dinámico de Terminos que copiar en el vector de Terminos
+   * @return Crea el diccionario con los Terminos de Vector_Dinamico<Termino>
+   */
   Diccionario(set<Termino> dic);
+
+  /**
+    * @brief Constructor de copias de la clase Diccionario
+    * @param original Diccionario a copiar en el nuevo objeto Diccionario
+    */
   Diccionario(const Diccionario &original);
 
-  typedef set<Termino>::iterator iterator; /**< Iterador de la clase basado en el tipo set subyacente */
+  typedef set<Termino>::iterator iterator;             /**< Iterador de la clase basado en el tipo set subyacente */
   typedef set<Termino>::const_iterator const_iterator; /**< Iterador constante de la clase basado en el tipo set subyacente */
 
+  /**
+    * @brief Definiciones relacionadas con la palabra pal
+    * @param pal String con la palabra cuyas definiciones se buscan
+    * @return Devuelve el vector dinámico de definiciones del Termino cuya palabra es p
+    */
   vector<string> getDefiniciones(string pal) const;
+
+  /**
+    * @brief Todos los terminos del diccionario
+    * @return set<Termino> Devuelve un set de tipos Termino con todos los terminos del diccionario
+    */
   set<Termino> getTerminos() const;
+
+  /**
+    * @brief Número de términos del diccionario
+    * @return int Devuelve el número de terminos del diccionario
+    */
   int getNumTerminos() const;
 
+  /**
+    * @brief Añade un Termino nuevo t al diccionario
+    * @param t Termino a añadir al diccionario
+    */
   void aniadirTermino(Termino t);
+
+  /**
+    * @brief Elimina un termino del diccionario
+    * @param t El Termino a eliminar en el diccionario
+    */
   void eliminarTermino(Termino t);
+
+  /**
+    * @brief Elimina un termino del una posición it del diccionario
+    * @param Diccionario::iterator it posición del diccionario del termino que eliminarTermino
+    */
   void eliminarTermino(Diccionario::iterator it);
+
+  /**
+    * @brief Busca en el diccionario el termino cuya palabra coincide con pal
+    * @param string pal la palabra que se busca en el Diccionario
+    * @return Diccionario::const_iterator posición del diccionario del termino cuya palabra coincide con pal
+    */
   Diccionario::const_iterator findTermino(string pal) const;
+
+  /**
+    * @brief Busca en el diccionario el termino que coincida con t
+    * @param Termino t el termino que se busca en el Diccionario
+    * @return Diccionario::const_iterator posición del diccionario del termino que coincide con t
+    */
   Diccionario::const_iterator findTermino(Termino t) const;
 
   Diccionario filtradoIntervalo(char ini, char fin) const;
   Diccionario filtradoClave(string clave) const;
 
+  /**
+    * @brief Hace un recuento de la cantidad de definiciones que tiene el diccionario
+    * @return int El número de total definiciones que tiene el diccionario
+    */
   int totalDefininiciones() const;
+
+  /**
+    * @brief El máximo de definiciones que tiene un único Termino del diccionario
+    * @return int Devuelve el número máximo de definiciones que acumula un único Termino del diccionario
+    */
   int maxDefiniciones() const;
   string maxPal(int = 0) const;
+
+  /**
+    * @brief El promedio de definiciones por cada palabra del diccionario
+    * @return double Devuelve el valor del promedio de definiciones por palabra de un solo diccionario
+    */
   double promedioDefiniciones() const;
+
+  /**
+    * @brief Función que determina si dos caracteres c1 y c2 son letras del abecedario
+    *
+    * @param char &c1 caracter primero
+    *
+    * @param char &c2 caracter segundo
+    *
+    * @return bool Devuelve true si ambos caracteres c1 y c2 son letras
+    */
   bool sonletras(const char &c1, const char &c2) const;
 
+  /**
+    * @brief Definicion de la funcion begin del iterador de la clase Diccionario
+    * @return iterator El iterador que apunta al inicio del set de terminos
+    */
   Diccionario::iterator begin();
+
+  /**
+    * @brief Definicion de la funcion begin del iterador constante de la clase Diccionario
+    * @return iterator El iterador constante que apunta al inicio del set de terminos
+    */
   Diccionario::const_iterator begin() const;
+
+  /**
+    * @brief Definicion de la funcion end del iterador de la clase Diccionario
+    * @return iterator El iterador que apunta al final del set de terminos
+    */
   Diccionario::iterator end();
+
+  /**
+    * @brief Definicion de la funcion end del iterador constante de la clase Diccionario
+    * @return iterator El iterador constante que apunta al final del set de terminos
+    */
   Diccionario::const_iterator end() const;
 
+
+  /**
+    * @brief Salida de un diccionario por flujo de salida ostream
+    * @param os flujo stream de salida
+    * @param d Diccionario que se saca por el flujo
+    */
   friend ostream& operator<< (ostream & os, const Diccionario & d);
+
+  /**
+    * @brief Entrada de un diccionario desde istream
+    * @param is flujo de entrada
+    * @param d El diccionario que recibe los datos del flujo de entrada
+    * @retval El diccionario recibido por flujo
+    */
   friend istream& operator>> (istream & is, Diccionario & d);
 };
 

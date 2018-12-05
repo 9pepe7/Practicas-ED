@@ -107,13 +107,50 @@ public:
 
   typedef vector<string>::iterator iterator; /**< Iterador de la clase basado en el tipo vector subyacente */
   typedef vector<string>::const_iterator const_iterator; /**< Iterador constante de la clase basado en el tipo vector subyacente */
+
+  /**
+    * @brief Definicion de la funcion begin del iterador de la clase Termino
+    * @return iterator El iterador que apunta al inicio del vector de definiciones
+    */
   Termino::iterator begin();
+
+  /**
+    * @brief Definicion de la funcion begin del iterador constante de la clase Termino
+    * @return const_iterator El iterador que apunta al inicio del vector de definiciones
+    */
   Termino::const_iterator begin() const;
+
+  /**
+    * @brief Definicion de la funcion end del iterador de la clase Termino
+    * @return iterator El iterador que apunta al final del vector de definiciones
+    */
   Termino::iterator end();
+
+  /**
+    * @brief Definicion de la funcion endº del iterador constante de la clase Termino
+    * @return const_iterator El iterador que apunta al final del vector de definiciones
+    */
   Termino::const_iterator end() const;
 
+/**
+  * @brief Salida de un termino a ostream
+  * @param os flujo de salida
+  * @param t Termino a escribir en el flujo
+  */
   friend ostream& operator<< (ostream & os, const Termino & t);
+
+/**
+  * @brief Entrada de un termino desde istream
+  * @param in flujo de salida
+  * @param t Termino que recibe los datos desde el flujo
+  */
   friend istream& operator>> (istream & is, Termino & t);
+
+/**
+  * @brief Sobrecarga del operador <
+  * @param t Termino que se compara con el objeto que llama al metodo
+  * @return bool true si t es mayor de orden que el objeto que llama al metodo, false si lo contrario
+  */
   bool operator< (const Termino &t) const;
 };
 
