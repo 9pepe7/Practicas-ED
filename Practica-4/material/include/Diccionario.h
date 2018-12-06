@@ -101,7 +101,7 @@ public:
 
   /**
     * @brief Elimina un termino del una posición it del diccionario
-    * @param Diccionario::iterator it posición del diccionario del termino que eliminarTermino
+    * @param it Iterador del termino que se desea eliminar
     */
   void eliminarTermino(Diccionario::iterator it);
 
@@ -113,7 +113,7 @@ public:
   Diccionario::const_iterator findTermino(string pal) const;
 
   /**
-    * @brief Busca en el diccionario el termino que coincida con t
+    * @brief Busca en el diccionario el termino t
     * @param Termino t el termino que se busca en el Diccionario
     * @return Diccionario::const_iterator posición del diccionario del termino que coincide con t
     */
@@ -122,18 +122,7 @@ public:
   Diccionario filtradoIntervalo(char ini, char fin) const;
   Diccionario filtradoClave(string clave) const;
 
-  /**
-    * @brief Hace un recuento de la cantidad de definiciones que tiene el diccionario
-    * @return int El número de total definiciones que tiene el diccionario
-    */
-  int totalDefininiciones() const;
-
-  /**
-    * @brief El máximo de definiciones que tiene un único Termino del diccionario
-    * @return int Devuelve el número máximo de definiciones que acumula un único Termino del diccionario
-    */
-  int maxDefiniciones() const;
-  string maxPal(int = 0) const;
+  void estadisticas(int &totaldef, int &maxdef, string &maxpal) const;
 
   /**
     * @brief El promedio de definiciones por cada palabra del diccionario
@@ -191,6 +180,21 @@ public:
     * @retval El diccionario recibido por flujo
     */
   friend istream& operator>> (istream & is, Diccionario & d);
+
+private:
+  /**
+    * @brief Hace un recuento de la cantidad de definiciones que tiene el diccionario
+    * @return int El número de total definiciones que tiene el diccionario
+    */
+  int totalDefininiciones() const;
+
+  /**
+    * @brief El máximo de definiciones que tiene un único Termino del diccionario
+    * @return int Devuelve el número máximo de definiciones que acumula un único Termino del diccionario
+    */
+  int maxDefiniciones() const;
+  string maxPal(int = 0) const;
+
 };
 
 #endif

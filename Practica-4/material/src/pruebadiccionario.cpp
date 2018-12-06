@@ -75,9 +75,11 @@ int main(int argc, char * argv[]){
 
   //  - Obtener el numero total de definiciones, el maximo de definiciones asociadas a una unica palabra y el promedio de definiciones por palabra
   //  - Cualquier otra funcionalidad que considereis de interes
+  int totaldef, maxdef; string maxpal;
+  mi_diccionario.estadisticas(totaldef,maxdef,maxpal);
   cout << endl << "El diccionario tiene " << mi_diccionario.getNumTerminos() << " palabras almacenadas." << endl;
-  cout << "El numero total de definiciones es -> " << mi_diccionario.totalDefininiciones() << endl;
-  cout << "El maximo de definiciones asociadas a una unica palabra es -> " << mi_diccionario.maxDefiniciones() << endl;
-  cout << "Y esa palabra es -> " << mi_diccionario.maxPal() << endl;
+  cout << "El numero total de definiciones es -> " << totaldef << endl;
+  cout << "El maximo de definiciones asociadas a una unica palabra es -> " << maxdef << endl;
+  cout << "Y esa palabra es -> " << maxpal << endl;
   cout << "Por ultimo, el promedio de definiciones por palabra es de -> " << mi_diccionario.promedioDefiniciones() << endl << endl;
 }

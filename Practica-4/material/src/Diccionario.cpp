@@ -87,35 +87,20 @@ Diccionario Diccionario::filtradoClave(string clave) const{
   return res;
 }
 
-int Diccionario::totalDefininiciones() const{ // numero total de definiciones entre todos los terminos
-  int n=0;
-  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){ // itero sobre todos los terminos del diccionario
-    n+=it->getNumDef();
-  }
-  return n;
-}
-int Diccionario::maxDefiniciones() const{ // busco el termino con mas definiciones (solo la cifra)
-  int max=0;
+void Diccionario::estadisticas(int &totaldef, int &maxdef, string &maxpal) const{ // Total de definiciones, y cual es la palabra con más
+  totaldef=0; maxdef=0;
   for(Diccionario::const_iterator it=begin(); it!=end(); ++it){
-    if(it->getNumDef() > max)
-      max=it->getNumDef();
-  }
-  return max;
-}
-string Diccionario::maxPal(int x) const{ // busco la (primera) palabra con mas defs (siempre >= x )
-  string pal; // x es 0 por defecto, puede usarse para ver si hay palabras con mas de x definiciones
-  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){
-    if(it->getNumDef() > x){
-      x=it->getNumDef();
-      pal=it->getPalabra();
+    totaldef+=it->getNumDef(); // Recuento de definiciones
+    if(it->getNumDef() > maxdef){ // Búsqueda de la palabra con más def
+      maxdef=it->getNumDef();
+      maxpal=it->getPalabra();
     }
   }
-  return pal;
 }
 double Diccionario::promedioDefiniciones() const{ // definiciones promedio
-  double x=totalDefininiciones(), y=getNumTerminos(); // se transforman a double ambos ints
-  return x/y;
+  return double(totalDefininiciones())/double(getNumTerminos()); // se transforman a double ambos ints
 }
+
 bool Diccionario::sonletras(const char &c1, const char &c2) const{ // comprueba si ambos chars son letras validas
   bool res=true;
   if( (c1<'A' || c1>'Z') && (c1<'a' || c1>'z') )
@@ -162,4 +147,33 @@ istream& operator>> (istream & is, Diccionario & d){ // istream basico
     }
   }
   return is;
+}
+
+/* Estas funciones al final no se usarán, en favor de Diccionario::Estadisticas() que hará el trabajo de todas
+para evitar iterar sobre el diccionario 3 veces (una vez cada una), pudiendo hacerlo solo 1 vez en total.
+Dejaremos las funciones en private por si se deseara usarlas en otro momento */
+int Diccionario::totalDefininiciones() const{ // numero total de definiciones entre todos los terminos
+  int n=0;
+  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){ // itero sobre todos los terminos del diccionario
+    n+=it->getNumDef();
+  }
+  return n;
+}
+int Diccionario::maxDefiniciones() const{ // busco el termino con mas definiciones (solo la cifra)
+  int max=0;
+  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){
+    if(it->getNumDef() > max)
+      max=it->getNumDef();
+  }
+  return max;
+}
+string Diccionario::maxPal(int x) const{ // busco la (primera) palabra con mas defs (siempre >= x )
+  string pal; // x es 0 por defecto, luego puede usarse tambien para ver si hay palabras con mas de x definiciones
+  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){
+    if(it->getNumDef() > x){
+      x=it->getNumDef();
+      pal=it->getPalabra();
+    }
+  }
+  return pal;
 }
