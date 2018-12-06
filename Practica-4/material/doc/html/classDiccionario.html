@@ -130,9 +130,9 @@ Métodos públicos</h2></td></tr>
 <tr class="memitem:ab19e305548ad06fc274057bc17bfd68c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiccionario.html#ab19e305548ad06fc274057bc17bfd68c">promedioDefiniciones</a> () const</td></tr>
 <tr class="memdesc:ab19e305548ad06fc274057bc17bfd68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">El promedio de definiciones por palabra del diccionario.  <a href="#ab19e305548ad06fc274057bc17bfd68c">Más...</a><br /></td></tr>
 <tr class="separator:ab19e305548ad06fc274057bc17bfd68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a910abc88bc7b7e8b2074d4822e1a2c26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiccionario.html#a910abc88bc7b7e8b2074d4822e1a2c26">sonletras</a> (const char &amp;c1, const char &amp;c2) const</td></tr>
-<tr class="memdesc:a910abc88bc7b7e8b2074d4822e1a2c26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que determina si dos caracteres c1 y c2 son letras del abecedario.  <a href="#a910abc88bc7b7e8b2074d4822e1a2c26">Más...</a><br /></td></tr>
-<tr class="separator:a910abc88bc7b7e8b2074d4822e1a2c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab090cb98843f8b8d04b1bf8fedd1003d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiccionario.html#ab090cb98843f8b8d04b1bf8fedd1003d">sonletras</a> (const char &amp;c1, const char &amp;c2='p') const</td></tr>
+<tr class="memdesc:ab090cb98843f8b8d04b1bf8fedd1003d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que determina si dos caracteres c1 y c2 son letras del abecedario.  <a href="#ab090cb98843f8b8d04b1bf8fedd1003d">Más...</a><br /></td></tr>
+<tr class="separator:ab090cb98843f8b8d04b1bf8fedd1003d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab270eb969d580f01b358e648a3061ac4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDiccionario.html#a91820df8d3ba094a119e4ad5af589156">Diccionario::iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiccionario.html#ab270eb969d580f01b358e648a3061ac4">begin</a> ()</td></tr>
 <tr class="memdesc:ab270eb969d580f01b358e648a3061ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definicion de la funcion begin del iterador de la clase <a class="el" href="classDiccionario.html" title="T.D.A. Diccionario. ">Diccionario</a>.  <a href="#ab270eb969d580f01b358e648a3061ac4">Más...</a><br /></td></tr>
 <tr class="separator:ab270eb969d580f01b358e648a3061ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,6 +148,9 @@ Métodos públicos</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Métodos privados</h2></td></tr>
+<tr class="memitem:a8932afbed0d9ea14b514eb96b2c313ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiccionario.html#a8932afbed0d9ea14b514eb96b2c313ac">contenida</a> (const string &amp;frase, const string &amp;palabra) const</td></tr>
+<tr class="memdesc:a8932afbed0d9ea14b514eb96b2c313ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca si una palabra está contenida en una definicion.  <a href="#a8932afbed0d9ea14b514eb96b2c313ac">Más...</a><br /></td></tr>
+<tr class="separator:a8932afbed0d9ea14b514eb96b2c313ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa711922bd61fc7e9e68f2e6b4df3494c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiccionario.html#aa711922bd61fc7e9e68f2e6b4df3494c">totalDefininiciones</a> () const</td></tr>
 <tr class="memdesc:aa711922bd61fc7e9e68f2e6b4df3494c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recuento del total de definiciones que tiene el diccionario.  <a href="#aa711922bd61fc7e9e68f2e6b4df3494c">Más...</a><br /></td></tr>
 <tr class="separator:aa711922bd61fc7e9e68f2e6b4df3494c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -350,6 +353,53 @@ Emilio Calvo de Mora Mármol </dd></dl>
 
 <p>Definicion de la funcion begin del iterador constante de la clase <a class="el" href="classDiccionario.html" title="T.D.A. Diccionario. ">Diccionario</a>. </p>
 <dl class="section return"><dt>Devuelve</dt><dd>Iterador constante que apunta al inicio del set de terminos </dd></dl>
+
+</div>
+</div>
+<a id="a8932afbed0d9ea14b514eb96b2c313ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8932afbed0d9ea14b514eb96b2c313ac">&#9670;&nbsp;</a></span>contenida()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Diccionario::contenida </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>frase</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>palabra</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Busca si una palabra está contenida en una definicion. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frase</td><td>La definicion en la que se busca la palabra </td></tr>
+    <tr><td class="paramname">palabra</td><td>Clave que se busca </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si se encuentra, false si no</dd></dl>
+<p>Es más precisa que string::find, ya que busca palabras, no cadenas de caracteres, y distingue comas y espacios. </p>
 
 </div>
 </div>
@@ -770,8 +820,8 @@ Emilio Calvo de Mora Mármol </dd></dl>
 
 </div>
 </div>
-<a id="a910abc88bc7b7e8b2074d4822e1a2c26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a910abc88bc7b7e8b2074d4822e1a2c26">&#9670;&nbsp;</a></span>sonletras()</h2>
+<a id="ab090cb98843f8b8d04b1bf8fedd1003d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab090cb98843f8b8d04b1bf8fedd1003d">&#9670;&nbsp;</a></span>sonletras()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -786,7 +836,7 @@ Emilio Calvo de Mora Mármol </dd></dl>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char &amp;&#160;</td>
-          <td class="paramname"><em>c2</em>&#160;</td>
+          <td class="paramname"><em>c2</em> = <code>'p'</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -800,11 +850,12 @@ Emilio Calvo de Mora Mármol </dd></dl>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">c1</td><td>Primera letra </td></tr>
-    <tr><td class="paramname">c2</td><td>Segunda letra </td></tr>
+    <tr><td class="paramname">c2</td><td>Segunda letra (opcional) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Devuelve</dt><dd>true si ambos caracteres c1 y c2 son letras </dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si ambos caracteres c1 y c2 son letras</dd></dl>
+<p>Damos un valor por defecto al segundo caracter para poder usar la funcion con 2 o con 1 letra </p>
 
 </div>
 </div>

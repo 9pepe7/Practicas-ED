@@ -70,7 +70,7 @@ int main(int argc, char * argv[]){
     cin >> clave;
     sub2 = mi_diccionario.filtradoClave(clave);
   }
-  cout << endl << "Estos son los terminos que la contienen:" << endl;
+  cout << "Estos son los terminos que la contienen:" << endl;
   cout << sub2;
 
   //  - Obtener el numero total de definiciones, el maximo de definiciones asociadas a una unica palabra y el promedio de definiciones por palabra

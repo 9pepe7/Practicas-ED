@@ -73,8 +73,8 @@ Diccionario Diccionario::filtradoClave(const string &clave) const{ // Filtrado p
   for(Diccionario::const_iterator it=begin(); it!=end(); ++it){ // Itero sobre todos los terminos del diccionario
     Termino t; // Creo un termino vacio
     for(Termino::const_iterator it2 = it->begin(); it2!=it->end(); ++it2){ // Itero ahora sobre las def del termino en el que se encuentra "it" (it2)
-      if (it2->find(clave) != string::npos) // Busca si aparece la palabra en la definicion en la que se encuentra "it2"
-        t.aniadirDefinicion(*it2); // Si sí la encuentra, la guarda, si no, string::find devuelve un size_t de valor npos
+      if (contenida(*it2,clave)) // Busca si aparece la palabra en la definicion en la que se encuentra "it2"
+        t.aniadirDefinicion(*it2); // Si la encuentra, la guarda
     }
     if(t.getNumDef()>0){ // Si se guardó alguna definicion, se guarda el término entero
       t.setPalabra(it->getPalabra()); // Le pongo su palabra
@@ -143,6 +143,34 @@ istream& operator>> (istream & is, Diccionario & d){ // istream basico
     }
   }
   return is;
+}
+
+/* En un principio, para el filtrado por clave decidimos usar string::find, como hicimos en la practica 2.
+Sin embargo, nos dimos cuenta de que string::find solo busca cadenas de caracteres, no palabras. Es decir,
+que si en la cadena "tomatera", nosotros buscabamos "mate", string::find nos daría un resultado positivo,
+ya que, efectivamente, la cadena "mate" se encuentra ahí. Decidimos por tanto, implementar una búsqueda
+refinada que distinga palabras, para un mejor filtrado por clave. */
+bool Diccionario::contenida (const string &frase, const string &palabra) const{ // Comprueba si una palabra esta en un string
+  bool res=false;
+  for(string::const_iterator it_frase = frase.begin(); !res && it_frase!=frase.end(); ++it_frase){ // Iteramos caracter a caracter por la definicion
+    if( *it_frase == *(palabra.begin()) ){ // Aquí podría comenzar la palabra (coinciden los caracteres)
+      string::const_iterator it_ant=it_frase; --it_ant; // Colocamos un iterador temporal en el caracter anterior al comienzo de la palabra
+      if( it_frase==frase.begin() || !sonletras(*it_ant) ){ // Comprobamos que sea el principio de la frase o que antes no haya letra
+        bool salir = false;
+        string::const_iterator it_palabra = palabra.begin();  // Procedemos a recorrer la palabra y la frase (ésta a traves de un aux)
+        string::const_iterator it_aux;    // de forma paralela, hasta que acaben una u otra, o hasta que sean distos algún par de caracteres
+        for(it_aux = it_frase; it_palabra!=palabra.end() && it_aux!=frase.end() && !salir; ++it_palabra, ++it_aux){
+          if(*it_aux != *it_palabra) // Si no coincide algún miembro, salir
+            salir = true;
+        }
+        if(it_palabra==palabra.end() && !salir){ // Si acabó la iteracion de palabra sin fallos, podemos salir del for, si no, éste sigue por donde iba
+          if(it_aux==frase.end() || !sonletras(*it_aux) ) // Comprobamos que sea final de la frase o que el caracter siguiente no es letra
+            res=true;
+        }
+      }
+    }
+  }
+  return res;
 }
 
 /* Estas funciones al final no se usarán, en favor de Diccionario::Estadisticas() que hará el trabajo de todas

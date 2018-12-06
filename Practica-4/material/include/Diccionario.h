@@ -168,10 +168,12 @@ public:
   /**
     * @brief Función que determina si dos caracteres c1 y c2 son letras del abecedario
     * @param c1 Primera letra
-    * @param c2 Segunda letra
+    * @param c2 Segunda letra (opcional)
     * @return true si ambos caracteres c1 y c2 son letras
+    * @details Damos un valor por defecto al segundo caracter
+    * para poder usar la funcion con 2 o con 1 letra
     */
-  bool sonletras(const char &c1, const char &c2) const;
+  bool sonletras(const char &c1, const char &c2='p') const;
 
   /**
     * @brief Definicion de la funcion begin del iterador de la clase Diccionario
@@ -215,6 +217,16 @@ public:
   friend istream& operator>> (istream & is, Diccionario & d);
 
 private:
+
+  /**
+    * @brief Busca si una palabra está contenida en una definicion
+    * @param frase La definicion en la que se busca la palabra
+    * @param palabra Clave que se busca
+    * @return true si se encuentra, false si no
+    * @details Es más precisa que string::find, ya que busca palabras,
+    * no cadenas de caracteres, y distingue comas y espacios.
+    */
+  bool contenida (const string &frase, const string &palabra) const;
 
   /**
     * @brief Recuento del total de definiciones que tiene el diccionario

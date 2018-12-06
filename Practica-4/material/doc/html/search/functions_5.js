@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['getdefinicion',['getDefinicion',['../classTermino.html#a5176371871a5f2526d0e87b9aa03e46d',1,'Termino']]],
-  ['getdefiniciones',['getDefiniciones',['../classDiccionario.html#af17ee867592abfd444004dfe99b91b19',1,'Diccionario::getDefiniciones()'],['../classTermino.html#a5db983d1f0b5be57deefd0d7bfdb0cf6',1,'Termino::getDefiniciones()']]],
-  ['getinicial',['getInicial',['../classTermino.html#a8f6df2737ace8436bc0d47ec8ee25a98',1,'Termino']]],
-  ['getnumdef',['getNumDef',['../classTermino.html#adcc2179c9f04b22ffb1a5982c3d9b8ec',1,'Termino']]],
-  ['getnumterminos',['getNumTerminos',['../classDiccionario.html#ae6d984ee1c3d6efa0748ef9708e6959c',1,'Diccionario']]],
-  ['getpalabra',['getPalabra',['../classTermino.html#aca7e4f7a65e39d79ce59be80c6b88690',1,'Termino']]],
-  ['getterminos',['getTerminos',['../classDiccionario.html#aec3ef2c5ffbe1166b61a36e201ed5359',1,'Diccionario']]]
+  ['filtradoclave',['filtradoClave',['../classDiccionario.html#a237fd5625743497399b858281fca5cc9',1,'Diccionario']]],
+  ['filtradointervalo',['filtradoIntervalo',['../classDiccionario.html#adc2746aa2efbd53114d9909913634de7',1,'Diccionario']]],
+  ['findtermino',['findTermino',['../classDiccionario.html#ab7fbc6de3542966d256a593f492e3836',1,'Diccionario::findTermino(const string &amp;pal) const'],['../classDiccionario.html#a1b34e2a6062d189c2186eee340b1125f',1,'Diccionario::findTermino(const Termino &amp;t) const']]]
 ];
