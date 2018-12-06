@@ -52,20 +52,20 @@ public:
 
   /**
     * @brief Constructor por parámetros
-    * @param pal Palabra
-    * @param def Vector de definiciones
+    * @param pal Palabra que identifica al termino
+    * @param def Vector de definiciones derl termino
     */
-  Termino(string pal, vector<string> def);
+  Termino(const string &pal, const vector<string> &def);
 
   /**
     * @brief Constructor por copia
-    * @param Original Termino que se copia
+    * @param original Termino que se copia
     */
   Termino(const Termino &original);
 
   /**
-    * @brief Devuelve la palabra
-    * @return string La palabra del termino
+    * @brief Devuelve la palabra que identifica al termino
+    * @return La palabra del termino
     */
   string getPalabra() const;
 
@@ -77,79 +77,89 @@ public:
 
   /**
     * @brief Devuelve el numero de definiciones que tiene el termino
-    * @return Un entero positivo con el numero de definiciones
+    * @return Entero no negativo con el numero de definiciones
     */
   int getNumDef() const;
 
   /**
     * @brief Devuelve la primera definicion de un termino
     * @return string Dicha definicion
+    * @details Si no hubiera definiciones en el termino,
+    * devuelve un string vacio
     */
   string getDefinicion() const;
 
   /**
     * @brief Devuelve la letra inicial de un termino
-    * @return char Dicha letra
+    * @return Un caracter con la letra
+    * @details Si el termino no tuviera palabra que lo
+    * identifique todavía, se devuelve el caracter ' '
     */
   char getInicial() const;
 
   /**
-    * @brief Asigna una palabra pal al termino
+    * @brief Asigna una palabra al termino
     * @param pal Palabra que es asignada
     */
-  void setPalabra(string pal);
+  void setPalabra(const string &pal);
 
   /**
     * @brief Añade una definicion al termino
     * @param def Definicion que se añade
+    * @details A priori no hay límite en cuántas
+    * definiciones puede tener un término.
     */
-  void aniadirDefinicion(string def);
+  void aniadirDefinicion(const string &def);
 
   typedef vector<string>::iterator iterator; /**< Iterador de la clase basado en el tipo vector subyacente */
   typedef vector<string>::const_iterator const_iterator; /**< Iterador constante de la clase basado en el tipo vector subyacente */
 
   /**
     * @brief Definicion de la funcion begin del iterador de la clase Termino
-    * @return iterator El iterador que apunta al inicio del vector de definiciones
+    * @return Iterador que apunta al inicio del vector de definiciones
     */
   Termino::iterator begin();
 
   /**
     * @brief Definicion de la funcion begin del iterador constante de la clase Termino
-    * @return const_iterator El iterador que apunta al inicio del vector de definiciones
+    * @return Iterador constante que apunta al inicio del vector de definiciones
     */
   Termino::const_iterator begin() const;
 
   /**
     * @brief Definicion de la funcion end del iterador de la clase Termino
-    * @return iterator El iterador que apunta al final del vector de definiciones
+    * @return Iterador que apunta al final del vector de definiciones
     */
   Termino::iterator end();
 
   /**
     * @brief Definicion de la funcion endº del iterador constante de la clase Termino
-    * @return const_iterator El iterador que apunta al final del vector de definiciones
+    * @return Iterador constante que apunta al final del vector de definiciones
     */
   Termino::const_iterator end() const;
 
 /**
-  * @brief Salida de un termino a ostream
+  * @brief Sobrecarga del operador de escritura
   * @param os flujo de salida
-  * @param t Termino a escribir en el flujo
+  * @param t Termino a describir en el flujo
+  * @return El flujo de salida
   */
   friend ostream& operator<< (ostream & os, const Termino & t);
 
 /**
-  * @brief Entrada de un termino desde istream
-  * @param in flujo de salida
+  * @brief Sobrecarga del operador de lectura
+  * @param is flujo de entrada
   * @param t Termino que recibe los datos desde el flujo
+  * @return El flujo de entrada
   */
   friend istream& operator>> (istream & is, Termino & t);
 
 /**
   * @brief Sobrecarga del operador <
   * @param t Termino que se compara con el objeto que llama al metodo
-  * @return bool true si t es mayor de orden que el objeto que llama al metodo, false si lo contrario
+  * @return bool true si el objeto que llama al metodo esta antes alfabeticamente que t, false si no
+  * @details A priori no se dará el caso de dos terminos iguales, es decir,
+  * que las palabras que los definen sean las mismas.
   */
   bool operator< (const Termino &t) const;
 };

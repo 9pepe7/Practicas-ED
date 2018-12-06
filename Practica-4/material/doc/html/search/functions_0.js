@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['aniadirdefinicion',['aniadirDefinicion',['../classTermino.html#a652f8cb3b51ffdbd80671673e6d9f23d',1,'Termino']]],
-  ['aniadirtermino',['aniadirTermino',['../classDiccionario.html#ace0cc4fc5aa6b5d4360b518a3917870d',1,'Diccionario']]]
+  ['aniadirdefinicion',['aniadirDefinicion',['../classTermino.html#af57dbcf6031918e5e2d40ea2feabb0cb',1,'Termino']]],
+  ['aniadirtermino',['aniadirTermino',['../classDiccionario.html#ab4cc0b335a2e048fa2920186af2fe349',1,'Diccionario']]]
 ];

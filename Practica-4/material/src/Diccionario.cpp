@@ -7,14 +7,14 @@
 using namespace std;
 
 Diccionario::Diccionario(){} // Costructor por defecto (no tocamos nada)
-Diccionario::Diccionario(set<Termino> dic){ // Costructor por parametros
+Diccionario::Diccionario(const set<Termino> &dic){ // Costructor por parametros
   dicc = dic;
 }
 Diccionario::Diccionario(const Diccionario &original){ // Constructor por copia
   dicc = original.getTerminos();
 }
 
-vector<string> Diccionario::getDefiniciones(string pal) const{ // Todas las definiciones de 1 palabra
+vector<string> Diccionario::getDefiniciones(const string &pal) const{ // Todas las definiciones de 1 palabra
   vector<string> res;
   Diccionario::const_iterator it=findTermino(pal);
   if(it != end()) // Si no encuentra la palabra, res esta vacio
@@ -28,38 +28,35 @@ int Diccionario::getNumTerminos() const{ // size
   return dicc.size();
 }
 
-void Diccionario::aniadirTermino(Termino t){ // Añadir 1 termino
+void Diccionario::aniadirTermino(const Termino &t){ // Añadir 1 termino
   dicc.insert(t);
 }
-void Diccionario::eliminarTermino(Termino t){ // Eliminar el termino dado
-  Diccionario::const_iterator it=findTermino(t); // Busqueda eficiente
-  if(it != end()) // Si no se encuentra el termino, no se borra nada, asi evitamos errores
-    dicc.erase(it);
+void Diccionario::eliminarTermino(const Termino &t){ // Eliminar el termino dado
+  dicc.erase(t); // Si no se encuentra el termino, no se borra nada
 }
 void Diccionario::eliminarTermino(Diccionario::iterator it){ // Eliminar el termino al que apunta el iterador
   dicc.erase(it);
 }
-Diccionario::const_iterator Diccionario::findTermino(string pal) const{ // dicc.find pero por palabra, menos eficiente, mas generalista
-  Diccionario::const_iterator res = end(); // Return por defecto es end()
-  for(Diccionario::const_iterator it=begin(); res==end() && it!=end(); ++it){ // Esto creo que podria hacerse mas eficientemente
+Diccionario::const_iterator Diccionario::findTermino(const string &pal) const{ // dicc.find pero por palabra, menos eficiente, mas general
+  for(Diccionario::const_iterator it=begin(); it!=end(); ++it){ // Esto creo que podria hacerse mas eficientemente
     if(it->getPalabra() == pal){ // Iteramos por el diccionario hasta hallar la palabra, o el final
-      res = it;
+      return it; // Si encontramos la palabra, devolvemos su iterador
     }
   }
-  return res;
+  return end(); // Return por defecto es end()
 }
-Diccionario::const_iterator Diccionario::findTermino(Termino t) const{ // Usamos este para busquedas más eficientes
+Diccionario::const_iterator Diccionario::findTermino(const Termino &t) const{ // Usamos este para busquedas más eficientes
   return dicc.find(t); // Solo sirve para buscar terminos completos, no su palabra
 }
 
-Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{
+Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{ // Filtra por dos iniciales
   Diccionario res;
   Diccionario::const_iterator it;
   if(ini >= 'A' && ini <= 'Z') // Transformamos a minuscula
     ini+=32;
   if(fin >= 'A' && fin <= 'Z')
     fin+=32;
-  if(ini > fin){
+  if(ini > fin){ // Si las letras se dieron en orden incorrecto, se corrige
     char aux = ini;
     ini = fin;
     fin = aux;
@@ -71,7 +68,7 @@ Diccionario Diccionario::filtradoIntervalo(char ini, char fin) const{
   }
   return res;
 }
-Diccionario Diccionario::filtradoClave(string clave) const{
+Diccionario Diccionario::filtradoClave(const string &clave) const{ // Filtrado por clave en definicion
   Diccionario res;
   for(Diccionario::const_iterator it=begin(); it!=end(); ++it){ // Itero sobre todos los terminos del diccionario
     Termino t; // Creo un termino vacio
@@ -88,7 +85,7 @@ Diccionario Diccionario::filtradoClave(string clave) const{
 }
 
 void Diccionario::estadisticas(int &totaldef, int &maxdef, string &maxpal) const{ // Total de definiciones, y cual es la palabra con más
-  totaldef=0; maxdef=0;
+  totaldef=0; maxdef=0; maxpal="";
   for(Diccionario::const_iterator it=begin(); it!=end(); ++it){
     totaldef+=it->getNumDef(); // Recuento de definiciones
     if(it->getNumDef() > maxdef){ // Búsqueda de la palabra con más def
@@ -100,7 +97,6 @@ void Diccionario::estadisticas(int &totaldef, int &maxdef, string &maxpal) const
 double Diccionario::promedioDefiniciones() const{ // definiciones promedio
   return double(totalDefininiciones())/double(getNumTerminos()); // se transforman a double ambos ints
 }
-
 bool Diccionario::sonletras(const char &c1, const char &c2) const{ // comprueba si ambos chars son letras validas
   bool res=true;
   if( (c1<'A' || c1>'Z') && (c1<'a' || c1>'z') )
@@ -133,10 +129,10 @@ ostream& operator<< (ostream & os, const Diccionario & d){ // Esta viene en el p
 istream& operator>> (istream & is, Diccionario & d){ // istream basico
   while(!is.eof()){ // recorremos el archivo entero
     Termino nuevo;
-    is >> nuevo; // Tomamos el termino con 1 definicion (1 linea de texto)
+    is >> nuevo; // Tomamos 1 palabra con 1 definicion (1 linea de texto)
     Diccionario::iterator it = d.findTermino(nuevo.getPalabra()); // Buscamos si tenemos ya a esa palabra (con otras definiciones)
     if(it == d.end()){ // Si es un termino nuevo
-      if(nuevo.getPalabra()!="") // Se guarda si es un termino valido
+      if(nuevo.getPalabra()!="" && nuevo.getNumDef()>0) // Se guarda si es un termino valido
         d.aniadirTermino(nuevo);
     }
     else{ // Si esa palabra ya estaba, se añade la definicion

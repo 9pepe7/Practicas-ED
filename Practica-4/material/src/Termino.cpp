@@ -7,7 +7,7 @@ Termino::Termino(){ // Constructor por defecto
   termino.first="";
 }
 
-Termino::Termino(string pal, vector<string> def){ // Constructor por parametros
+Termino::Termino(const string &pal, const vector<string> &def){ // Constructor por parametros
   termino.first=pal;
   termino.second=def;
 }
@@ -26,16 +26,22 @@ int Termino::getNumDef() const{ // Numero de definiciones de la palabra
   return termino.second.size();
 }
 string Termino::getDefinicion() const{ // Primera definicion
-  return termino.second[0];
+  string res="";
+  if(getNumDef()>0) // Comprobamos que sea un dato válido
+    res=termino.second[0];
+  return res;
 }
 char Termino::getInicial() const{ // Letra inicial
-  return termino.first[0];
+  char res=' ';
+  if(getPalabra()!="") // Nos aseguramos de que sea un dato válido
+    res=termino.first[0];
+  return res;
 }
 
-void Termino::setPalabra(string pal){
+void Termino::setPalabra(const string &pal){
   termino.first=pal;
 }
-void Termino::aniadirDefinicion(string def){ // Se suma una definicion más
+void Termino::aniadirDefinicion(const string &def){ // Se suma una definicion más
   termino.second.push_back(def);
 }
 
