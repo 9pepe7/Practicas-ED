@@ -8,6 +8,7 @@ CPPFLAGS = -Wall -g -c
 
 
 all: $(BIN)/pruebadiccionario
+	
 # ************ Generación de documentación ******************
 documentacion:
 	doxygen doc/doxys/Doxyfile
