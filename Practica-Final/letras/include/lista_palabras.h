@@ -64,7 +64,7 @@ class lista_palabras{
       friend class lista_palabras;
     };
 
-    iterator begin();
-    iterator end();
+    iterator begin() const;
+    iterator end() const;
 };
 #endif

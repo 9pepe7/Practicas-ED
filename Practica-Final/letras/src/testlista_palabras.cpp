@@ -10,7 +10,7 @@ using namespace std;
 int main(int argc, char * argv[]){
   if (argc!=2){
     cout<<"Los parametros son:"<<endl;
-    cout<<"1.- El fichero con las palabras";
+    cout<<"1.- El fichero con las palabras"<<endl;
     return 0;
   }
   ifstream f(argv[1]);
@@ -18,12 +18,12 @@ int main(int argc, char * argv[]){
     cout<<"No puedo abrir el fichero"<<argv[1]<<endl;
     return 0;
   }
-  /*lista_palabras D;
+  lista_palabras D;
   cout<<"Cargando lista_palabras...."<<endl;
   f>>D;
   cout<<"Leido el lista_palabras..."<<endl;
   cout<<D;
-  int longitud;
+  /*int longitud;
   cout<<"Dime la longitud de las palabras que quieres ver";
   cin>>longitud;
   vector<string>v=D.palabras_longitud(longitud);
