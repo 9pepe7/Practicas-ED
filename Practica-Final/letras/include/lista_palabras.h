@@ -1,6 +1,11 @@
 #ifndef __lista_palabras_h__
 #define __lista_palabras_h__
+
 #include <set>
+#include <vector>
+#include <string>
+
+using namespace std;
 
 class lista_palabras{
   private:
@@ -58,8 +63,8 @@ class lista_palabras{
       bool operator !=(const iterator &i) const;
       friend class lista_palabras;
     };
-    iterator begin();
 
+    iterator begin();
     iterator end();
 };
 #endif

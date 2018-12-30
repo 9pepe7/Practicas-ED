@@ -3,11 +3,10 @@ INC = include
 OBJ = obj
 SRC = src
 CXX = g++
-INCLUDES = $(INC)/Diccionario.h $(INC)/Termino.h
 CPPFLAGS = -Wall -g -c
 
 
-all: $(BIN)/
+all: $(BIN)/testlista_palabras
 
 # ************ Generación de documentación ******************
 documentacion:
@@ -15,8 +14,15 @@ documentacion:
 
 
 # ************ Compilación de módulos ************
+$(BIN)/testlista_palabras: $(OBJ)/testlista_palabras.o $(OBJ)/lista_palabras.o
+	$(CXX) -o $@ $^ -I$(INC)
 
+$(OBJ)/testlista_palabras.o: $(SRC)/testlista_palabras.cpp $(INC)/lista_palabras.h
+	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
 
+$(OBJ)/lista_palabras.o: $(SRC)/lista_palabras.cpp $(INC)/lista_palabras.h
+	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
+	
 # ************ Limpieza ************
 clean :
 	-rm $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~

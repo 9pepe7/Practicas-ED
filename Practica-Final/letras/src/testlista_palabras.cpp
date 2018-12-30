@@ -5,6 +5,8 @@
 #include <set>
 #include "lista_palabras.h"
 
+using namespace std;
+
 int main(int argc, char * argv[]){
   if (argc!=2){
     cout<<"Los parametros son:"<<endl;
@@ -16,7 +18,7 @@ int main(int argc, char * argv[]){
     cout<<"No puedo abrir el fichero"<<argv[1]<<endl;
     return 0;
   }
-  lista_palabras D;
+  /*lista_palabras D;
   cout<<"Cargando lista_palabras...."<<endl;
   f>>D;
   cout<<"Leido el lista_palabras..."<<endl;
@@ -34,6 +36,6 @@ int main(int argc, char * argv[]){
   if (D.Esta(p))
     cout<<"Sí esa palabra existe";
   else
-    cout<<"Esa palabra no existe";
+    cout<<"Esa palabra no existe";*/
   cout << endl;
 }
