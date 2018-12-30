@@ -37,9 +37,12 @@ istream & operator>>(istream & is, lista_palabras &D){ // flujo de entrada
 }
 
 ostream & operator<<(ostream & os, const lista_palabras &D){ // flujo de salida
-  //for(lista_palabras::iterator it=D.begin();it!=D.end();++it) ESTE DA UN SEGMENTATION QUE DA GUSTO VERLO
-  for(set<string>::iterator it=D.datos.begin();it!=D.datos.end();++it)
+
+  lista_palabras::iterator it=D.begin();
+  for(int i=0; i<10 && it!=D.end(); ++it,++i){
+  //for(set<string>::iterator it=D.datos.begin();it!=D.datos.end();++it){
     os << *it << " ";
+  }
   return os;
 }
 
