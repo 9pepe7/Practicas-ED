@@ -14,6 +14,9 @@ private:
   int puntuacion;
 public:
   letra();
+  char getLetra() const;
+  int getCantidad() const;
+  int getPuntuacion() const;
   friend istream & operator>>(istream & is, letra &L);
   friend ostream & operator<<(ostream & os, const letra &L);
   bool operator < (const letra &l) const;

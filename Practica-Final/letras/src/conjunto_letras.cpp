@@ -23,3 +23,28 @@ ostream & operator<<(ostream & os, const conjunto_letras &C){
     os << *it;
   return os;
 }
+
+conjunto_letras::iterator::iterator (){}
+letra conjunto_letras::iterator::operator *() const{
+  return *it;
+}
+conjunto_letras::iterator & conjunto_letras::iterator::operator ++(){
+  ++it;
+  return *this;
+}
+bool conjunto_letras::iterator::operator ==(const conjunto_letras::iterator &i) const{
+  return this->it==i.it;
+}
+bool conjunto_letras::iterator::operator !=(const conjunto_letras::iterator &i) const{
+  return this->it!=i.it;
+}
+conjunto_letras::iterator conjunto_letras::begin() const{
+  conjunto_letras::iterator res;
+  res.it=letras.begin();
+  return res;
+}
+conjunto_letras::iterator conjunto_letras::end() const{
+  conjunto_letras::iterator res;
+  res.it=letras.end();
+  return res;
+}
