@@ -23,19 +23,19 @@ int main(int argc, char * argv[]){
   f>>D;
   cout<<"Leido el lista_palabras..."<<endl;
   cout<<D;
-  /*int longitud;
-  cout<<"Dime la longitud de las palabras que quieres ver";
+  int longitud;
+  cout<<endl<<endl<<"Dime la longitud de las palabras que quieres ver -> ";
   cin>>longitud;
   vector<string>v=D.palabras_longitud(longitud);
   cout<<"Palabras de longitud "<<longitud<<endl;
   for (unsigned int i=0;i<v.size();i++)
-    cout<<v[i]<<endl;
+    cout<<v[i]<<" ";
   string p;
   cout<<"Dime una palabra: ";
   cin>>p;
   if (D.Esta(p))
-    cout<<"Sí esa palabra existe";
+    cout<<"Sí, esa palabra existe";
   else
-    cout<<"Esa palabra no existe";*/
+    cout<<"Esa palabra no existe";
   cout << endl;
 }
