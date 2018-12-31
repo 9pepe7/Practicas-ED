@@ -42,9 +42,7 @@ int main(int argc, char * argv[]){
   conjunto_letras c; f_letras >> c;
   char juega_otra_vez;
   do{
-    cout << l;
-    cout << c;
-    cout << "¿Quieres seguir jugando[S/N]?";
+    cout << "¿Quieres seguir jugando[S/N]? ";
     cin >> juega_otra_vez;
   } while (juega_otra_vez == 'S');
 }

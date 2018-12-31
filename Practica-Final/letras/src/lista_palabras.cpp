@@ -40,6 +40,7 @@ ostream & operator<<(ostream & os, const lista_palabras &D){ // flujo de salida
   //for(set<string>::iterator it=D.datos.begin();it!=D.datos.end();++it){ // ESTE FUNCIONA
     os << *it << " ";
   }
+  os << endl;
   return os;
 }
 

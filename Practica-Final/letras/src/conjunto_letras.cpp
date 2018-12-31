@@ -18,9 +18,8 @@ istream & operator>>(istream & is, conjunto_letras &C){
   return is;
 }
 ostream & operator<<(ostream & os, const conjunto_letras &C){
-  os << "#Letra\tCantidad\tPuntos" << endl;
+  os << "#Letra Cantidad Puntos" << endl;
   for(set<letra>::iterator it=C.letras.begin(); it!=C.letras.end(); ++it)
     os << *it;
-  os << endl;
   return os;
 }
