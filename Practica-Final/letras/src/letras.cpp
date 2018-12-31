@@ -5,6 +5,7 @@ prompt% letras spanish.txt letras.txt 8 L*/
 #include <fstream>
 #include <iostream>
 #include "conjunto_letras.h"
+#include "bolsa_letras.h"
 #include "lista_palabras.h"
 
 using namespace std;
@@ -38,10 +39,21 @@ int main(int argc, char * argv[]){
     cout << "Debe seleccionarse una modalidad de juego valida (L o P)." << endl;
     return 0;
   }
-  lista_palabras l; f_lista_palabras >> l;
-  conjunto_letras c; f_letras >> c;
-  char juega_otra_vez;
+  lista_palabras L; f_lista_palabras >> L;
+  conjunto_letras C; f_letras >> C;
+  bolsa_letras B (C);
+  char juega_otra_vez, tipo=argv[4][0];
+  int tam=stoi(argv[3]);
   do{
+    string solucion;
+    if(tipo=='P')
+      C.getPuntuaciones();
+    vector<char> vec = B.setAleatoria(tam);
+    cout << "Las letras son:" << endl;
+    for(int i=0; i<vec.size(); ++i)
+      cout << vec[i] << " ";
+    cout << "Dime tu solucion -> ";
+    cin >> solucion;
     cout << "¿Quieres seguir jugando[S/N]? ";
     cin >> juega_otra_vez;
   } while (juega_otra_vez == 'S');

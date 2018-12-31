@@ -7,6 +7,11 @@
 using namespace std;
 
 conjunto_letras::conjunto_letras(){}
+void conjunto_letras::getPuntuaciones(){
+  cout << "******Puntuaciones Letras*******" << endl;
+  for(conjunto_letras::iterator it = begin(); it!=end(); ++it)
+    cout << (*it).getLetra() << "\t" << (*it).getPuntuacion() << endl;
+}
 istream & operator>>(istream & is, conjunto_letras &C){
   string aux;
   getline(is,aux);
