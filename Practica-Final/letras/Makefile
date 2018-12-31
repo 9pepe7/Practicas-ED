@@ -6,7 +6,7 @@ CXX = g++
 CPPFLAGS = -Wall -g -c
 
 
-all: $(BIN)/testlista_palabras
+all: $(BIN)/testlista_palabras $(BIN)/letras
 
 # ************ Generación de documentación ******************
 documentacion:
@@ -22,7 +22,13 @@ $(OBJ)/testlista_palabras.o: $(SRC)/testlista_palabras.cpp $(INC)/lista_palabras
 
 $(OBJ)/lista_palabras.o: $(SRC)/lista_palabras.cpp $(INC)/lista_palabras.h
 	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
-	
+
+$(BIN)/letras: $(OBJ)/letras.o
+	$(CXX) -o $@ $^ -I$(INC)
+
+$(OBJ)/letras.o: $(SRC)/letras.cpp
+	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
+
 # ************ Limpieza ************
 clean :
 	-rm $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
