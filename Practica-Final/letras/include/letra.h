@@ -13,6 +13,9 @@ private:
   int cantidad;
   int puntuacion;
 public:
-  
+  letra();
+  friend istream & operator>>(istream & is, letra &L);
+  friend ostream & operator<<(ostream & os, const letra &L);
+  bool operator < (const letra &l) const;
 };
 #endif

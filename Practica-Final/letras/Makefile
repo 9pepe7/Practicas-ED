@@ -23,10 +23,16 @@ $(OBJ)/testlista_palabras.o: $(SRC)/testlista_palabras.cpp $(INC)/lista_palabras
 $(OBJ)/lista_palabras.o: $(SRC)/lista_palabras.cpp $(INC)/lista_palabras.h
 	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
 
-$(BIN)/letras: $(OBJ)/letras.o
+$(BIN)/letras: $(OBJ)/letras.o $(OBJ)/conjunto_letras.o $(OBJ)/letra.o $(OBJ)/lista_palabras.o
 	$(CXX) -o $@ $^ -I$(INC)
 
 $(OBJ)/letras.o: $(SRC)/letras.cpp
+	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
+
+$(OBJ)/conjunto_letras.o: $(SRC)/conjunto_letras.cpp $(INC)/conjunto_letras.h $(INC)/letra.h
+	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
+
+$(OBJ)/letra.o: $(SRC)/letra.cpp $(INC)/letra.h
 	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
 
 # ************ Limpieza ************

@@ -4,7 +4,11 @@ línea de órdenes de la siguiente manera:
 prompt% letras spanish.txt letras.txt 8 L*/
 #include <fstream>
 #include <iostream>
+#include "conjunto_letras.h"
+#include "lista_palabras.h"
+
 using namespace std;
+
 int main(int argc, char * argv[]){
   if (argc!=5){
     cout<<"Los parametros son:"<<endl;
@@ -12,8 +16,8 @@ int main(int argc, char * argv[]){
     cout << "2. El nombre del fichero con las letras." << endl;
     cout << "3. El número de letras que se deben generar de forma aleatoria." << endl;
     cout << "4. Modalidad de juego:" << endl;
-    cout << "• Longitud: Si el parámetro es L se buscará la palabra más larga." << endl;
-    cout << "• Puntuación: Si el parámetro es P se buscará la palabra de mayor puntuación." << endl;
+    cout << "Longitud: Si el parámetro es L se buscará la palabra más larga." << endl;
+    cout << "Puntuación: Si el parámetro es P se buscará la palabra de mayor puntuación." << endl;
     return 0;
   }
   ifstream f_lista_palabras(argv[1]);
@@ -34,9 +38,13 @@ int main(int argc, char * argv[]){
     cout << "Debe seleccionarse una modalidad de juego valida (L o P)." << endl;
     return 0;
   }
+  lista_palabras l; f_lista_palabras >> l;
+  conjunto_letras c; f_letras >> c;
   char juega_otra_vez;
   do{
+    cout << l;
+    cout << c;
     cout << "¿Quieres seguir jugando[S/N]?";
     cin >> juega_otra_vez;
-  } while (juega_otra_vez == 'S')
+  } while (juega_otra_vez == 'S');
 }
