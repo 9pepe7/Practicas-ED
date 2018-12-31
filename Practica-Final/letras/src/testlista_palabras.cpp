@@ -31,7 +31,7 @@ int main(int argc, char * argv[]){
   for (unsigned int i=0;i<v.size();i++)
     cout<<v[i]<<" ";
   string p;
-  cout<<"Dime una palabra: ";
+  cout << endl <<"Dime una palabra: ";
   cin>>p;
   if (D.Esta(p))
     cout<<"Sí, esa palabra existe";
