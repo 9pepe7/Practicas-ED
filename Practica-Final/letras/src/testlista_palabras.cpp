@@ -24,10 +24,10 @@ int main(int argc, char * argv[]){
   cout<<"Leido el lista_palabras..."<<endl;
   cout<<D;
   int longitud;
-  cout<<endl<<endl<<"Dime la longitud de las palabras que quieres ver -> ";
+  cout<<endl<<"Dime la longitud de las palabras que quieres ver -> ";
   cin>>longitud;
   vector<string>v=D.palabras_longitud(longitud);
-  cout<<"Palabras de longitud "<<longitud<<endl;
+  cout<<"Palabras de longitud "<<longitud<<":"<<endl;
   for (unsigned int i=0;i<v.size();i++)
     cout<<v[i]<<" ";
   string p;
