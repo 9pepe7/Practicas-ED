@@ -6,13 +6,13 @@ using namespace std;
 
 struct comp{
   bool menor(const char& c1, const char& c2) const{
-    if(c1>='a'&&c1<='n') //c1 <ñ
-      return (c2>='a'&&c2<='n')?c1<c2:true;
+    if( (c1>='a'&&c1<='n') || (c1>='A'&&c1<='N') ) //c1 <ñ
+      return ( (c2>='a'&&c2<='n') || (c2>='A'&&c2<='N') )?c1<c2:true;
     else {
-      if(c1>='o'&&c1<='z') // c1 >ñ
-        return (c2>='o'&&c2<='z')?c1<c2:false;
+      if((c1>='o'&&c1<='z') || (c1>='O'&&c1<='Z')) // c1 >ñ
+        return ((c2>='o'&&c2<='z') || (c2>='O'&&c2<='Z'))?c1<c2:false;
       else // c1=ñ
-        return (c2>='a'&&c2<='n')?false:true;
+        return ((c2>='a'&&c2<='n') || (c2>='A'&&c2<='N'))?false:true;
     }
   }
   bool operator() (const string& s1, const string& s2) const{
