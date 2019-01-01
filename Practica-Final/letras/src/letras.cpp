@@ -44,19 +44,22 @@ int main(int argc, char * argv[]){
   bolsa_letras B (C);
   char juega_otra_vez, tipo=argv[4][0];
   unsigned tam=stoi(argv[3]);
-  cout << C;
-  cout << B;
-  /*do{
+  do{
     string solucion;
     B.setAleatorias(tam);
     if(tipo=='P')
       C.pantallaPuntuaciones();
-    cout << "Las letras son:" << endl;
+    cout << "\nLas letras son:" << endl;
     B.pantallaAleatorias();
     cout << "\nDime tu solucion -> ";
     cin >> solucion;
-
+    while(!B.solucion_correcta(solucion)){
+      cout << "Tu solucion no es correcta. Debes de usar las letras proporcionadas." << endl;
+      cout << "Dime tu solucion -> ";
+      cin >> solucion;
+    }
+    cout << solucion << "\tPuntuacion: ";
     cout << "¿Quieres seguir jugando[S/N]? ";
     cin >> juega_otra_vez;
-  } while (juega_otra_vez == 'S');*/
+  } while (juega_otra_vez == 'S');
 }

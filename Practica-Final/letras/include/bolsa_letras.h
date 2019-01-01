@@ -15,7 +15,8 @@ public:
   bolsa_letras();
   bolsa_letras(const conjunto_letras &C);
   void setAleatorias(const unsigned &tam);
-  void pantallaAleatorias();
+  bool solucion_correcta(string pal) const;
+  void pantallaAleatorias() const;
   friend ostream & operator<<(ostream & os, const bolsa_letras &B);
 };
 #endif

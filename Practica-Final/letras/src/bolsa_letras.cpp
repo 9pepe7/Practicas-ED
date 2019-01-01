@@ -3,9 +3,11 @@
 #include "bolsa_letras.h"
 #include <iostream>
 #include <vector>
+#include <set>
 #include <stdio.h> // NULL
 #include <stdlib.h> // srand, rand
 #include <time.h> // time
+#include <ctype.h> // toupper
 
 using namespace std;
 
@@ -32,7 +34,20 @@ void bolsa_letras::setAleatorias(const unsigned &tam){
   }
 }
 
-void bolsa_letras::pantallaAleatorias(){
+bool bolsa_letras::solucion_correcta(string pal) const{
+  multiset<char> aux(this->aleatorias.begin(),this->aleatorias.end());
+  for(unsigned i=0; i<pal.size(); ++i){
+    pal[i]=toupper(pal[i]);
+    multiset<char>::iterator it=aux.find(pal[i]);
+    if(it==aux.end())
+      return false;
+    else
+      aux.erase(it);
+  }
+  return true;
+}
+
+void bolsa_letras::pantallaAleatorias() const{
   for(unsigned i=0; i<aleatorias.size(); ++i)
     cout << aleatorias[i] << " ";
   cout << endl;
