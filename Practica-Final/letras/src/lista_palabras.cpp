@@ -48,13 +48,16 @@ lista_palabras::iterator::iterator (){} // constructor del iterador
 string lista_palabras::iterator::operator *() const{ // Devuelve el objeto iterado
   return *it;
 }
+
 lista_palabras::iterator & lista_palabras::iterator::operator ++(){ // Avanza el iterador
   ++it;
   return *this;
 }
+
 bool lista_palabras::iterator::operator ==(const lista_palabras::iterator &i) const{
   return this->it == i.it;
 }
+
 bool lista_palabras::iterator::operator !=(const lista_palabras::iterator &i) const{
   return this->it != i.it;
 }

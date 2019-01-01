@@ -43,18 +43,20 @@ int main(int argc, char * argv[]){
   conjunto_letras C; f_letras >> C;
   bolsa_letras B (C);
   char juega_otra_vez, tipo=argv[4][0];
-  int tam=stoi(argv[3]);
-  do{
+  unsigned tam=stoi(argv[3]);
+  cout << C;
+  cout << B;
+  /*do{
     string solucion;
+    B.setAleatorias(tam);
     if(tipo=='P')
-      C.getPuntuaciones();
-    vector<char> vec = B.setAleatoria(tam);
+      C.pantallaPuntuaciones();
     cout << "Las letras son:" << endl;
-    for(int i=0; i<vec.size(); ++i)
-      cout << vec[i] << " ";
-    cout << "Dime tu solucion -> ";
+    B.pantallaAleatorias();
+    cout << "\nDime tu solucion -> ";
     cin >> solucion;
+
     cout << "¿Quieres seguir jugando[S/N]? ";
     cin >> juega_otra_vez;
-  } while (juega_otra_vez == 'S');
+  } while (juega_otra_vez == 'S');*/
 }

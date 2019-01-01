@@ -12,7 +12,7 @@ private:
   set<letra> letras;
 public:
   conjunto_letras();
-  void getPuntuaciones();
+  void pantallaPuntuaciones();
   friend istream & operator>>(istream & is, conjunto_letras &C);
   friend ostream & operator<<(ostream & os, const conjunto_letras &C);
   class iterator {

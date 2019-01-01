@@ -10,6 +10,7 @@
 using namespace std;
 
 bolsa_letras::bolsa_letras(){}
+
 bolsa_letras::bolsa_letras(const conjunto_letras &C){
   for(conjunto_letras::iterator it = C.begin(); it!=C.end(); ++it){
     for(int j=0; j<(*it).getCantidad(); ++j){
@@ -17,19 +18,28 @@ bolsa_letras::bolsa_letras(const conjunto_letras &C){
     }
   }
 }
-vector<char> bolsa_letras::setAleatoria(const int &tam){
-  vector<char> res;
+
+void bolsa_letras::setAleatorias(const unsigned &tam){
+  this->aleatorias.clear();
   if(tam <= letras.size()){
+    vector<char> aux=this->letras;
     srand (time(NULL));
-    for(int i=0, aux;i<tam;++i){
-      aux=rand()%letras.size();
-      res.insert(letras[aux]);
+    for(unsigned i=0, random;i<tam;++i){
+      random=rand()%aux.size();
+      aleatorias.push_back(aux[random]);
+      aux.erase(aux.begin()+random);
     }
   }
-  return res;
 }
+
+void bolsa_letras::pantallaAleatorias(){
+  for(unsigned i=0; i<aleatorias.size(); ++i)
+    cout << aleatorias[i] << " ";
+  cout << endl;
+}
+
 ostream & operator<<(ostream & os, const bolsa_letras &B){
-  for(int i=0; i<B.letras.size();++i)
+  for(unsigned i=0; i<B.letras.size();++i)
     os << B.letras[i] << " ";
   os << endl;
   return os;
