@@ -13,6 +13,7 @@ private:
 public:
   conjunto_letras();
   void pantallaPuntuaciones();
+  int puntuacion(const char &c) const;
   friend istream & operator>>(istream & is, conjunto_letras &C);
   friend ostream & operator<<(ostream & os, const conjunto_letras &C);
   class iterator {

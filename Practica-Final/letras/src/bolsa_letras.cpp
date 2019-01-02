@@ -47,6 +47,17 @@ bool bolsa_letras::solucion_correcta(string pal) const{
   return true;
 }
 
+int bolsa_letras::PuntuacionP(const string &pal, const conjunto_letras &C) const{
+  int res=0;
+  for(unsigned i=0; i<pal.length(); ++i)
+    res+=C.puntuacion(pal[i]);
+  return res;
+}
+
+int bolsa_letras::PuntuacionL(const string &pal) const{
+  return pal.length();
+}
+
 void bolsa_letras::pantallaAleatorias() const{
   for(unsigned i=0; i<aleatorias.size(); ++i)
     cout << aleatorias[i] << " ";

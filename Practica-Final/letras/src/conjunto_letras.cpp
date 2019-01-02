@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <set>
+#include <ctype.h> // toupper
 
 using namespace std;
 
@@ -12,6 +13,14 @@ void conjunto_letras::pantallaPuntuaciones(){
   cout << "******Puntuaciones Letras*******" << endl;
   for(conjunto_letras::iterator it = begin(); it!=end(); ++it)
     cout << (*it).getLetra() << "\t" << (*it).getPuntuacion() << endl;
+}
+
+int conjunto_letras::puntuacion(const char &c) const{
+  for(conjunto_letras::iterator it=this->begin(); it!=this->end(); ++it){
+    if((*it).getLetra() == toupper(c))
+      return (*it).getPuntuacion();
+  }
+  return 0;
 }
 
 istream & operator>>(istream & is, conjunto_letras &C){

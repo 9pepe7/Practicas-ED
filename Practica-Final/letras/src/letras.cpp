@@ -7,6 +7,7 @@ prompt% letras spanish.txt letras.txt 8 L*/
 #include "conjunto_letras.h"
 #include "bolsa_letras.h"
 #include "lista_palabras.h"
+#include <ctype.h> // toupper
 
 using namespace std;
 
@@ -35,19 +36,20 @@ int main(int argc, char * argv[]){
     cout << "Debe generarse al menos una letra." << endl;
     return 0;
   }
-  if( argv[4][0]!='L' && argv[4][0]!='P' ){
+  if( toupper(argv[4][0])!='L' && toupper(argv[4][0])!='P'){
     cout << "Debe seleccionarse una modalidad de juego valida (L o P)." << endl;
     return 0;
   }
   lista_palabras L; f_lista_palabras >> L;
   conjunto_letras C; f_letras >> C;
   bolsa_letras B (C);
-  char juega_otra_vez, tipo=argv[4][0];
+  char juega_otra_vez;
+  bool t_p=(toupper(argv[4][0])=='P')?true:false;
   unsigned tam=stoi(argv[3]);
   do{
     string solucion;
     B.setAleatorias(tam);
-    if(tipo=='P')
+    if(t_p)
       C.pantallaPuntuaciones();
     cout << "\nLas letras son:" << endl;
     B.pantallaAleatorias();
@@ -59,7 +61,8 @@ int main(int argc, char * argv[]){
       cin >> solucion;
     }
     cout << solucion << "\tPuntuacion: ";
+    cout << ( t_p?B.PuntuacionP(solucion,C):B.PuntuacionL(solucion) ) << endl;
     cout << "¿Quieres seguir jugando[S/N]? ";
     cin >> juega_otra_vez;
-  } while (juega_otra_vez == 'S');
+  } while (toupper(juega_otra_vez)=='S');
 }
