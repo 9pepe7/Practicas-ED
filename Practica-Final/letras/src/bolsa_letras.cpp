@@ -48,38 +48,38 @@ bool bolsa_letras::solucion_correcta(string pal) const{
   return true;
 }
 
-int bolsa_letras::PuntuacionP(const string &pal, const conjunto_letras &C) const{
+unsigned bolsa_letras::PuntuacionP(const string &pal, const conjunto_letras &C) const{
   int res=0;
   for(unsigned i=0; i<pal.length(); ++i)
     res+=C.puntuacion(pal[i]);
   return res;
 }
 
-int bolsa_letras::PuntuacionL(const string &pal) const{
+unsigned bolsa_letras::PuntuacionL(const string &pal) const{
   return pal.length();
 }
 
-vector<string> bolsa_letras::maxPuntVectorPalabrasP(vector<string> v, const conjunto_letras &C, int &max){
+vector<string> bolsa_letras::maxPuntVectorPalabrasP(vector<string> v, const conjunto_letras &C, unsigned &max){
   vector<string> tmp;
   max = 0;
   for(unsigned i = 0; i < v.size(); i++){
-    if (C.puntuacion(v[i]) > max){
-      max = C.puntuacion(v[i]);
+    if (PuntuacionP(v[i], C) > max){
+      max = PuntuacionP(v[i], C);
       tmp.clear();
       tmp.push_back(v[i]);
 
     }
-    if (C.puntuacion(v[i]) == max){
+    if (PuntuacionP(v[i], C) == max){
       tmp.push_back(v[i]);
     }
   }
   return tmp;
 }
 
-vector<string> bolsa_letras::maxPuntVectorPalabrasL(vector<string> v, int &max){
+vector<string> bolsa_letras::maxPuntVectorPalabrasL(vector<string> v, unsigned &max){
   vector<string> tmp;
   max = 0;
-  for(int i = 0; i < v.size(); i++){
+  for(unsigned i = 0; i < v.size(); i++){
     if (v[i].size() > max){
       max = v[i].size();
       tmp.clear();
@@ -94,8 +94,8 @@ vector<string> bolsa_letras::maxPuntVectorPalabrasL(vector<string> v, int &max){
 }
 
 
-vector<string> bolsa_letras::maxPuntListaP(const lista_palabras &lista, const conjunto_letras &C, int &max) const{
-  vector<string> v = 0; //no estoy seguro de si inicializarlo así
+vector<string> bolsa_letras::maxPuntListaP(const lista_palabras &lista, const conjunto_letras &C, unsigned &max){
+  vector<string> v;
   for(lista_palabras::iterator it = lista.begin(); it != lista.end(); ++it){
     if(solucion_correcta((*it))){
       v.push_back((*it));
@@ -106,8 +106,8 @@ vector<string> bolsa_letras::maxPuntListaP(const lista_palabras &lista, const co
   return tmp;
 }
 
-vector<string> bolsa_letras::maxPuntListaL(const lista_palabras &lista, int &max) const{
-  vector<string> v = 0; //no estoy seguro de si inicializarlo así
+vector<string> bolsa_letras::maxPuntListaL(const lista_palabras &lista, unsigned &max){
+  vector<string> v;
   for(lista_palabras::iterator it = lista.begin(); it != lista.end(); ++it){
     if(solucion_correcta((*it))){
       v.push_back((*it));
