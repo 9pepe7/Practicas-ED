@@ -4,6 +4,7 @@ línea de órdenes de la siguiente manera:
 prompt% letras spanish.txt letras.txt 8 L*/
 #include <fstream>
 #include <iostream>
+#include <vector>
 #include "conjunto_letras.h"
 #include "bolsa_letras.h"
 #include "lista_palabras.h"
@@ -62,6 +63,18 @@ int main(int argc, char * argv[]){
     }
     cout << solucion << "\tPuntuacion: ";
     cout << ( t_p?B.PuntuacionP(solucion,C):B.PuntuacionL(solucion) ) << endl;
+
+    cout << "Mis soluciones son:" << endl;
+    vector<string> soluciones;
+    int puntMisSoluciones;
+    t_p? soluciones = B.maxPuntListaP(L, C, puntMisSoluciones) : B.maxPuntListaL(L, puntMisSoluciones);
+
+    for(int j = 0; j < soluciones.size(); j++){
+      cout << soluciones[j] << "\tPuntuacion: " << puntMisSoluciones << endl;
+    }
+
+
+
     cout << "¿Quieres seguir jugando[S/N]? ";
     cin >> juega_otra_vez;
   } while (toupper(juega_otra_vez)=='S');

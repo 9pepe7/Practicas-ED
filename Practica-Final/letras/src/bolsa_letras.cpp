@@ -1,6 +1,7 @@
 #include "letra.h"
 #include "conjunto_letras.h"
 #include "bolsa_letras.h"
+#include "lista_palabras.h"
 #include <iostream>
 #include <vector>
 #include <set>
@@ -56,6 +57,65 @@ int bolsa_letras::PuntuacionP(const string &pal, const conjunto_letras &C) const
 
 int bolsa_letras::PuntuacionL(const string &pal) const{
   return pal.length();
+}
+
+vector<string> bolsa_letras::maxPuntVectorPalabrasP(vector<string> v, const conjunto_letras &C, int &max){
+  vector<string> tmp;
+  max = 0;
+  for(int i = 0; i < v.size(); i++){
+    if (C.puntuacion(v[i]) > max){
+      max = C.puntuacion(v[i]);
+      tmp.clear();
+      tmp.push_back(v[i]);
+
+    }
+    if (C.puntuacion(v[i]) == max){
+      tmp.push_back(v[i]);
+    }
+  }
+  return tmp;
+}
+
+vector<string> bolsa_letras::maxPuntVectorPalabrasL(vector<string> v, int &max){
+  vector<string> tmp;
+  max = 0;
+  for(int i = 0; i < v.size(); i++){
+    if (v[i].size() > max){
+      max = v[i].size();
+      tmp.clear();
+      tmp.push_back(v[i]);
+
+    }
+    if (v[i].size() == max){
+      tmp.push_back(v[i]);
+    }
+  }
+  return tmp;
+}
+
+
+vector<string> bolsa_letras::maxPuntListaP(const lista_palabras &lista, const conjunto_letras &C, int &max) const{
+  vector<string> v = 0; //no estoy seguro de si inicializarlo así
+  for(lista_palabras::iterator it = lista.begin(); it != lista.end(); ++it){
+    if(solucion_correcta((*it))){
+      v.push_back((*it));
+    }
+  }
+  vector<string> tmp;
+  tmp = maxPuntVectorPalabrasP(v, C, max);
+  return tmp;
+}
+
+vector<string> bolsa_letras::maxPuntListaL(const lista_palabras &lista, int &max) const{
+  vector<string> v = 0; //no estoy seguro de si inicializarlo así
+  for(lista_palabras::iterator it = lista.begin(); it != lista.end(); ++it){
+    if(solucion_correcta((*it))){
+      v.push_back((*it));
+    }
+  }
+  vector<string> tmp;
+  tmp = maxPuntVectorPalabrasL(v, max);
+  return tmp;
 }
 
 void bolsa_letras::pantallaAleatorias() const{
