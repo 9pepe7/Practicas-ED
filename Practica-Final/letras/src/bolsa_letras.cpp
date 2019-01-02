@@ -16,9 +16,8 @@ bolsa_letras::bolsa_letras(){}
 
 bolsa_letras::bolsa_letras(const conjunto_letras &C){
   for(conjunto_letras::iterator it = C.begin(); it!=C.end(); ++it){
-    for(int j=0; j<(*it).getCantidad(); ++j){
+    for(int j=0; j<(*it).getCantidad(); ++j)
       letras.push_back((*it).getLetra());
-    }
   }
 }
 
@@ -48,74 +47,49 @@ bool bolsa_letras::solucion_correcta(string pal) const{
   return true;
 }
 
-unsigned bolsa_letras::PuntuacionP(const string &pal, const conjunto_letras &C) const{
+unsigned bolsa_letras::puntuacionP(const string &pal, const conjunto_letras &C) const{
   int res=0;
   for(unsigned i=0; i<pal.length(); ++i)
     res+=C.puntuacion(pal[i]);
   return res;
 }
 
-unsigned bolsa_letras::PuntuacionL(const string &pal) const{
+unsigned bolsa_letras::puntuacionL(const string &pal) const{
   return pal.length();
 }
 
-vector<string> bolsa_letras::maxPuntVectorPalabrasP(vector<string> v, const conjunto_letras &C, unsigned &max){
-  vector<string> tmp;
-  max = 0;
-  for(unsigned i = 0; i < v.size(); i++){
-    if (PuntuacionP(v[i], C) > max){
-      max = PuntuacionP(v[i], C);
-      tmp.clear();
-      tmp.push_back(v[i]);
-
-    }
-    if (PuntuacionP(v[i], C) == max){
-      tmp.push_back(v[i]);
+vector<string> bolsa_letras::solucionesP(const lista_palabras &L, const conjunto_letras &C) const{
+  vector<string> res;
+  int max=0;
+  for(lista_palabras::iterator it=L.begin(); it!=L.end(); ++it){
+    if( solucion_correcta(*it) ){
+      int p=puntuacionP(*it,C);
+      if( p > max ){
+        res.clear();
+        max=p;
+        res.push_back(*it);
+      } else if(p == max)
+        res.push_back(*it);
     }
   }
-  return tmp;
+  return res;
 }
 
-vector<string> bolsa_letras::maxPuntVectorPalabrasL(vector<string> v, unsigned &max){
-  vector<string> tmp;
-  max = 0;
-  for(unsigned i = 0; i < v.size(); i++){
-    if (v[i].size() > max){
-      max = v[i].size();
-      tmp.clear();
-      tmp.push_back(v[i]);
-
-    }
-    if (v[i].size() == max){
-      tmp.push_back(v[i]);
-    }
-  }
-  return tmp;
-}
-
-
-vector<string> bolsa_letras::maxPuntListaP(const lista_palabras &lista, const conjunto_letras &C, unsigned &max){
-  vector<string> v;
-  for(lista_palabras::iterator it = lista.begin(); it != lista.end(); ++it){
-    if(solucion_correcta((*it))){
-      v.push_back((*it));
+vector<string> bolsa_letras::solucionesL(const lista_palabras &L) const{
+  vector<string> res;
+  int max=0;
+  for(lista_palabras::iterator it=L.begin(); it!=L.end(); ++it){
+    if( solucion_correcta(*it) ){
+      int l=puntuacionL(*it);
+      if( l > max ){
+        res.clear();
+        max=l;
+        res.push_back(*it);
+      } else if(l == max)
+        res.push_back(*it);
     }
   }
-  vector<string> tmp;
-  tmp = maxPuntVectorPalabrasP(v, C, max);
-  return tmp;
-}
-
-vector<string> bolsa_letras::maxPuntListaL(const lista_palabras &lista, unsigned &max){
-  vector<string> v;
-  for(lista_palabras::iterator it = lista.begin(); it != lista.end(); ++it){
-    if(solucion_correcta((*it))){
-      v.push_back((*it));
-    }
-  }
-  vector<string> tmp;
-  tmp = maxPuntVectorPalabrasL(v, max);
-  return tmp;
+  return res;
 }
 
 void bolsa_letras::pantallaAleatorias() const{

@@ -50,10 +50,10 @@ int main(int argc, char * argv[]){
   do{
     string solucion;
     B.setAleatorias(tam);
+
     if(t_p)
       C.pantallaPuntuaciones();
-    cout << "\nLas letras son:" << endl;
-    B.pantallaAleatorias();
+    cout << "\nLas letras son:" << endl; B.pantallaAleatorias();
     cout << "\nDime tu solucion -> ";
     cin >> solucion;
     while(!B.solucion_correcta(solucion)){
@@ -61,24 +61,16 @@ int main(int argc, char * argv[]){
       cout << "Dime tu solucion -> ";
       cin >> solucion;
     }
+    
     cout << solucion << "\tPuntuacion: ";
-    cout << ( t_p?B.PuntuacionP(solucion,C):B.PuntuacionL(solucion) ) << endl;
+    cout << ( t_p?B.puntuacionP(solucion,C):B.puntuacionL(solucion) ) << endl;
 
+    vector<string> soluciones_programa = t_p?(B.solucionesP(L,C)):(B.solucionesL(L));
     cout << "Mis soluciones son:" << endl;
-    vector<string> soluciones;
-    int puntMisSoluciones;
-    if(t_p){
-      soluciones = B.maxPuntListaP(L, C, puntMisSoluciones);
+    for(unsigned i = 0; i < soluciones_programa.size(); ++i){
+      cout << soluciones_programa[i] << "\tPuntuacion: ";
+      cout << ( t_p?B.puntuacionP(soluciones_programa[i],C):B.puntuacionL(soluciones_programa[i]) ) << endl;
     }
-    else{
-      soluciones = B.maxPuntListaL(L, puntMisSoluciones);
-    }
-
-    for(int j = 0; j < soluciones.size(); j++){
-      cout << soluciones[j] << "\tPuntuacion: " << puntMisSoluciones << endl;
-    }
-
-
 
     cout << "¿Quieres seguir jugando[S/N]? ";
     cin >> juega_otra_vez;
