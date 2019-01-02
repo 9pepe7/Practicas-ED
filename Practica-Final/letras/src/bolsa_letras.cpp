@@ -62,7 +62,7 @@ int bolsa_letras::PuntuacionL(const string &pal) const{
 vector<string> bolsa_letras::maxPuntVectorPalabrasP(vector<string> v, const conjunto_letras &C, int &max){
   vector<string> tmp;
   max = 0;
-  for(int i = 0; i < v.size(); i++){
+  for(unsigned i = 0; i < v.size(); i++){
     if (C.puntuacion(v[i]) > max){
       max = C.puntuacion(v[i]);
       tmp.clear();

@@ -67,7 +67,12 @@ int main(int argc, char * argv[]){
     cout << "Mis soluciones son:" << endl;
     vector<string> soluciones;
     int puntMisSoluciones;
-    t_p? soluciones = B.maxPuntListaP(L, C, puntMisSoluciones) : B.maxPuntListaL(L, puntMisSoluciones);
+    if(t_p){
+      soluciones = B.maxPuntListaP(L, C, puntMisSoluciones);
+    }
+    else{
+      soluciones = B.maxPuntListaL(L, puntMisSoluciones);
+    }
 
     for(int j = 0; j < soluciones.size(); j++){
       cout << soluciones[j] << "\tPuntuacion: " << puntMisSoluciones << endl;
