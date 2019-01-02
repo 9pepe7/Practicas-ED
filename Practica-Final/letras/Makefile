@@ -6,7 +6,7 @@ CXX = g++
 CPPFLAGS = -Wall -g -c
 
 
-all: $(BIN)/testlista_palabras $(BIN)/letras
+all: $(BIN)/testlista_palabras $(BIN)/letras $(BIN)/cantidad_letras
 
 # ************ Generación de documentación ******************
 documentacion:
@@ -26,7 +26,7 @@ $(OBJ)/lista_palabras.o: $(SRC)/lista_palabras.cpp $(INC)/lista_palabras.h $(INC
 $(BIN)/letras: $(OBJ)/letras.o $(OBJ)/bolsa_letras.o $(OBJ)/conjunto_letras.o $(OBJ)/letra.o $(OBJ)/lista_palabras.o
 	$(CXX) -o $@ $^ -I$(INC)
 
-$(OBJ)/letras.o: $(SRC)/letras.cpp
+$(OBJ)/letras.o: $(SRC)/letras.cpp $(INC)/bolsa_letras.h $(INC)/lista_palabras.h $(INC)/conjunto_letras.h
 	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
 
 $(OBJ)/bolsa_letras.o: $(SRC)/bolsa_letras.cpp $(INC)/bolsa_letras.h $(INC)/conjunto_letras.h $(INC)/letra.h
@@ -36,6 +36,12 @@ $(OBJ)/conjunto_letras.o: $(SRC)/conjunto_letras.cpp $(INC)/conjunto_letras.h $(
 	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
 
 $(OBJ)/letra.o: $(SRC)/letra.cpp $(INC)/letra.h $(INC)/comp.h
+	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
+
+$(BIN)/cantidad_letras: $(OBJ)/cantidad_letras.o $(OBJ)/conjunto_letras.o $(OBJ)/letra.o
+	$(CXX) -o $@ $^ -I$(INC)
+
+$(OBJ)/cantidad_letras.o: $(SRC)/cantidad_letras.cpp $(INC)/conjunto_letras.h
 	$(CXX) $(CPPFLAGS) -o $@ $< -I$(INC)
 
 # ************ Limpieza ************

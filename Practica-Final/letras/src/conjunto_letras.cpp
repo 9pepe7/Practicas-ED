@@ -23,6 +23,15 @@ int conjunto_letras::puntuacion(const char &c) const{
   return 0;
 }
 
+conjunto_letras::iterator conjunto_letras::find(const char &c) const{
+  conjunto_letras::iterator it;
+  for(it=this->begin(); it!=this->end(); ++it){
+    if( (*it).getLetra()==c )
+      return it;
+  }
+  return it;
+}
+
 istream & operator>>(istream & is, conjunto_letras &C){
   string aux;
   getline(is,aux);

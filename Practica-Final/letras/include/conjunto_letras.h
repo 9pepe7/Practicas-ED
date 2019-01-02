@@ -29,5 +29,6 @@ public:
   };
   iterator begin() const;
   iterator end() const;
+  iterator find(const char &c) const;
 };
 #endif

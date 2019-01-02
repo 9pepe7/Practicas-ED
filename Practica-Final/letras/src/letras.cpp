@@ -1,7 +1,3 @@
-/* Este programa construye palabras de longitud mayor (o de puntuación mayor) a partir de una
-serie de letras seleccionadas de forma aleatoria. El programa letras se deberá ejecutar en la
-línea de órdenes de la siguiente manera:
-prompt% letras spanish.txt letras.txt 8 L*/
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -26,11 +22,11 @@ int main(int argc, char * argv[]){
   ifstream f_lista_palabras(argv[1]);
   ifstream f_letras(argv[2]);
   if (!f_lista_palabras){
-    cout<<"No puedo abrir el fichero"<<argv[1]<<endl;
+    cout<<"No puedo abrir el fichero "<<argv[1]<<endl;
     return 0;
   }
   if (!f_letras){
-    cout<<"No puedo abrir el fichero"<<argv[2]<<endl;
+    cout<<"No puedo abrir el fichero "<<argv[2]<<endl;
     return 0;
   }
   if(stoi(argv[3])<1){
@@ -61,7 +57,7 @@ int main(int argc, char * argv[]){
       cout << "Dime tu solucion -> ";
       cin >> solucion;
     }
-    
+
     cout << solucion << "\tPuntuacion: ";
     cout << ( t_p?B.puntuacionP(solucion,C):B.puntuacionL(solucion) ) << endl;
 
