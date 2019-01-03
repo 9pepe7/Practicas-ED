@@ -5,6 +5,7 @@ prompt% cantidad_letras spanish letras.txt salida.txt */
 #include "conjunto_letras.h"
 #include <ctype.h> // toupper
 #include <map>
+#include <iomanip>
 
 using namespace std;
 
@@ -53,6 +54,8 @@ int main(int argc, char * argv[]){
   for(it=recuento.begin(); it!=recuento.end(); ++it)
     frecuencias[it->first]=(it->second/total*100);
 
+  f_salida << "#Letra\tCantidad" << endl;
+  f_salida << setprecision(2) << fixed;
   for(map<char,double>::iterator ite=frecuencias.begin(); ite!=frecuencias.end(); ++ite)
-    cout << ite->first << " " << ite->second << endl;
+    f_salida << ite->first << "\t" << ite->second << "%" << endl;
 }
