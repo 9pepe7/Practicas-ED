@@ -62,13 +62,14 @@ int main(int argc, char * argv[]){
     cout << ( t_p?B.puntuacionP(solucion,C):B.puntuacionL(solucion) ) << endl;
 
     vector<string> soluciones_programa = t_p?(B.solucionesP(L,C)):(B.solucionesL(L));
-    cout << "Mis soluciones son:" << endl;
+    cout << "\nMis soluciones son:" << endl;
     for(unsigned i = 0; i < soluciones_programa.size(); ++i){
       cout << soluciones_programa[i] << "\tPuntuacion: ";
       cout << ( t_p?B.puntuacionP(soluciones_programa[i],C):B.puntuacionL(soluciones_programa[i]) ) << endl;
     }
+    cout << "Mejor solucion: " << soluciones_programa[soluciones_programa.size()-1] << endl;
 
-    cout << "¿Quieres seguir jugando[S/N]? ";
+    cout << "\n¿Quieres seguir jugando[S/N]? ";
     cin >> juega_otra_vez;
   } while (toupper(juega_otra_vez)=='S');
 }
