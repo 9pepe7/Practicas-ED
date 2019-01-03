@@ -39,9 +39,8 @@ int main(int argc, char * argv[]){
     recuento[(*it).getLetra()]=0; // Se añaden las letras al map
 
   map<char,int>::iterator it;
-  while(!f_lista_palabras.eof()){ // Se recorre el fichero lista de palabras
-    char c='.';
-    f_lista_palabras >> c;
+  char c;
+  while(f_lista_palabras.get(c)){ // Se recorre el fichero lista de palabras
     it=recuento.find(toupper(c)); // se registra caracter a caracter
     if(it!=recuento.end()) // Pero solo los válidos
       it->second++;
