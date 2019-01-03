@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-struct comp{
+struct comp{ // Estructura para ordenacion de char y string que funciona con la ñ
   bool menor(const char& c1, const char& c2) const{
     if( (c1>='a'&&c1<='n') || (c1>='A'&&c1<='N') ) //c1 <ñ
       return ( (c2>='a'&&c2<='n') || (c2>='A'&&c2<='N') )?c1<c2:true;
