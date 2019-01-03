@@ -36,7 +36,7 @@ istream & operator>>(istream & is, lista_palabras &D){ // flujo de entrada
 }
 
 ostream & operator<<(ostream & os, const lista_palabras &D){ // flujo de salida
-  for(lista_palabras::iterator it=D.begin(); it!=D.end(); ++it){ 
+  for(lista_palabras::iterator it=D.begin(); it!=D.end(); ++it){
     os << *it << " ";
   }
   os << endl;
