@@ -22,7 +22,7 @@ vector<string> lista_palabras::palabras_longitud(const int &longitud) const{ // 
   return res;
 }
 
-bool lista_palabras::Esta(const string &palabra) const{ // find
+bool lista_palabras::Esta(const string &palabra) const{ // Comprueba si una palabra esta en la lista
   return datos.find(palabra)==datos.end() ? false : true;
 }
 
@@ -36,8 +36,7 @@ istream & operator>>(istream & is, lista_palabras &D){ // flujo de entrada
 }
 
 ostream & operator<<(ostream & os, const lista_palabras &D){ // flujo de salida
-  for(lista_palabras::iterator it=D.begin(); it!=D.end(); ++it){ // RICO SEGMENTATION FAULT
-  //for(set<string>::iterator it=D.datos.begin();it!=D.datos.end();++it){ // ESTE FUNCIONA
+  for(lista_palabras::iterator it=D.begin(); it!=D.end(); ++it){ 
     os << *it << " ";
   }
   os << endl;

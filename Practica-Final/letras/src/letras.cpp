@@ -37,32 +37,32 @@ int main(int argc, char * argv[]){
     cout << "Debe seleccionarse una modalidad de juego valida (L o P)." << endl;
     return 0;
   }
-  lista_palabras L; f_lista_palabras >> L;
+  lista_palabras L; f_lista_palabras >> L; // Inicializamos los objetos para jugar
   conjunto_letras C; f_letras >> C;
   bolsa_letras B (C);
   char juega_otra_vez;
-  bool t_p=(toupper(argv[4][0])=='P')?true:false;
-  unsigned tam=stoi(argv[3]);
+  bool t_p=(toupper(argv[4][0])=='P')?true:false; // modo de juego, L o P
+  unsigned n_letras=stoi(argv[3]); // numero de letras con el que se juega
   do{
     string solucion;
-    B.setAleatorias(tam);
+    B.setAleatorias(n_letras); // Se eligen las letras con las que se jugará
 
     if(t_p)
-      C.pantallaPuntuaciones();
+      C.pantallaPuntuaciones(); // Se muestran las puntuaciones de cada letra
     cout << "\nLas letras son:" << endl; B.pantallaAleatorias();
     cout << "\nDime tu solucion -> ";
     cin >> solucion;
-    while(!B.solucion_correcta(solucion)){
+    while(!B.solucion_correcta(solucion)){ // Se comprueba si la solucion es correcta
       cout << "Tu solucion no es correcta. Debes de usar las letras proporcionadas." << endl;
       cout << "Dime tu solucion -> ";
       cin >> solucion;
     }
 
-    cout << solucion << "\tPuntuacion: ";
+    cout << solucion << "\tPuntuacion: "; // Calculo de la puntuacion de la solucion
     cout << ( t_p?B.puntuacionP(solucion,C):B.puntuacionL(solucion) ) << endl;
 
-    vector<string> soluciones_programa = t_p?(B.solucionesP(L,C)):(B.solucionesL(L));
-    cout << "\nMis soluciones son:" << endl;
+    vector<string> soluciones_programa = t_p ? (B.solucionesP(L,C)) : (B.solucionesL(L));
+    cout << "\nMis soluciones son:" << endl; // Soluciones del programa
     for(unsigned i = 0; i < soluciones_programa.size(); ++i){
       cout << soluciones_programa[i] << "\tPuntuacion: ";
       cout << ( t_p?B.puntuacionP(soluciones_programa[i],C):B.puntuacionL(soluciones_programa[i]) ) << endl;

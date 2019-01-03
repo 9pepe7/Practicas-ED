@@ -16,12 +16,13 @@ public:
   conjunto_letras();
   void pantallaPuntuaciones();
   int puntuacion(const char &c) const;
-  conjunto_letras::iterator find(const char &c) const;
   friend istream & operator>>(istream & is, conjunto_letras &C);
   friend ostream & operator<<(ostream & os, const conjunto_letras &C);
   conjunto_letras::iterator begin();
   conjunto_letras::const_iterator begin() const;
   conjunto_letras::iterator end();
   conjunto_letras::const_iterator end() const;
+private:
+  conjunto_letras::iterator find(const char &c) const;
 };
 #endif

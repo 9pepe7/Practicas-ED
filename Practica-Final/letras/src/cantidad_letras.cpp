@@ -5,7 +5,7 @@ prompt% cantidad_letras spanish letras.txt salida.txt */
 #include "conjunto_letras.h"
 #include <ctype.h> // toupper
 #include <map>
-#include <iomanip>
+#include <iomanip> // setprecision fixed
 
 using namespace std;
 
@@ -36,26 +36,26 @@ int main(int argc, char * argv[]){
   conjunto_letras C; f_letras >> C;
   map<char,int> recuento;
   for(conjunto_letras::iterator it=C.begin(); it!=C.end(); ++it)
-    recuento[(*it).getLetra()]=0;
+    recuento[(*it).getLetra()]=0; // Se añaden las letras al map
 
   char c; map<char,int>::iterator it;
-  while(!f_lista_palabras.eof()){
+  while(!f_lista_palabras.eof()){ // Se recorre el fichero lista de palabras
     f_lista_palabras >> c;
-    it=recuento.find(toupper(c));
-    if(it!=recuento.end())
+    it=recuento.find(toupper(c)); // se registra caracter a caracter
+    if(it!=recuento.end()) // Pero solo los válidos
       it->second++;
   }
 
-  double total=0.0;
+  double total=0.0; // Se calcula el total de caracteres registrados
   for(it=recuento.begin(); it!=recuento.end(); ++it)
     total+=it->second;
 
-  map<char,double> frecuencias;
+  map<char,double> frecuencias; // Y ahora la frecuencia de cada caracter
   for(it=recuento.begin(); it!=recuento.end(); ++it)
-    frecuencias[it->first]=(it->second/total*100);
+    frecuencias[it->first]=(it->second/total*100); // En %
 
   f_salida << "#Letra\tCantidad" << endl;
-  f_salida << setprecision(2) << fixed;
+  f_salida << setprecision(2) << fixed; //Se limita la salida a 2 decimales
   for(map<char,double>::iterator ite=frecuencias.begin(); ite!=frecuencias.end(); ++ite)
-    f_salida << ite->first << "\t" << ite->second << "%" << endl;
+    f_salida << ite->first << "\t" << ite->second << "%" << endl; // Se guarda en el archivo de salida
 }

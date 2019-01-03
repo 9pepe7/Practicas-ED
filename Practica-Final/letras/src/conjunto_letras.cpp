@@ -22,12 +22,12 @@ int conjunto_letras::puntuacion(const char &c) const{ // Devuelve la puntuacion 
   return 0;
 }
 
-conjunto_letras::iterator conjunto_letras::find(const char &c) const {
+conjunto_letras::iterator conjunto_letras::find(const char &c) const { // Busca un caracter
   for(conjunto_letras::iterator it=this->begin(); it!=this->end(); ++it){
     if((*it).getLetra() == toupper(c))
-      return it;
+      return it; // Devuelve puntero al objeto letra
   }
-  return end();
+  return end(); // Si no se encuentra, se devuelve end
 }
 
 istream & operator>>(istream & is, conjunto_letras &C){

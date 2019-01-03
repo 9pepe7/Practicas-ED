@@ -36,5 +36,5 @@ ostream & operator<<(ostream & os, const letra &L){
 
 bool letra::operator < (const letra &l) const{ // Booleano para poder ordenar las letras en el set
   comp c;
-  return c.menor(this->caracter,l.caracter);
+  return c.menor(this->caracter,l.caracter); // Se usa una ordenacion especial para incluir las ñ
 }
