@@ -23,15 +23,6 @@ int conjunto_letras::puntuacion(const char &c) const{
   return 0;
 }
 
-conjunto_letras::iterator conjunto_letras::find(const char &c) const{
-  conjunto_letras::iterator it;
-  for(it=this->begin(); it!=this->end(); ++it){
-    if( (*it).getLetra()==c )
-      return it;
-  }
-  return it;
-}
-
 istream & operator>>(istream & is, conjunto_letras &C){
   string aux;
   getline(is,aux);
@@ -50,33 +41,15 @@ ostream & operator<<(ostream & os, const conjunto_letras &C){
   return os;
 }
 
-conjunto_letras::iterator::iterator (){}
-
-letra conjunto_letras::iterator::operator *() const{
-  return *it;
+conjunto_letras::iterator conjunto_letras::begin(){
+  return this->letras.begin();
 }
-
-conjunto_letras::iterator & conjunto_letras::iterator::operator ++(){
-  ++it;
-  return *this;
+conjunto_letras::const_iterator conjunto_letras::begin() const{
+  return this->letras.begin();
 }
-
-bool conjunto_letras::iterator::operator ==(const conjunto_letras::iterator &i) const{
-  return this->it==i.it;
+conjunto_letras::iterator conjunto_letras::end(){
+  return this->letras.end();
 }
-
-bool conjunto_letras::iterator::operator !=(const conjunto_letras::iterator &i) const{
-  return this->it!=i.it;
-}
-
-conjunto_letras::iterator conjunto_letras::begin() const{
-  conjunto_letras::iterator res;
-  res.it=letras.begin();
-  return res;
-}
-
-conjunto_letras::iterator conjunto_letras::end() const{
-  conjunto_letras::iterator res;
-  res.it=letras.end();
-  return res;
+conjunto_letras::const_iterator conjunto_letras::end() const{
+  return this->letras.end();
 }

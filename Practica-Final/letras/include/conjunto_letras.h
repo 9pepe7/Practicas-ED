@@ -16,19 +16,11 @@ public:
   int puntuacion(const char &c) const;
   friend istream & operator>>(istream & is, conjunto_letras &C);
   friend ostream & operator<<(ostream & os, const conjunto_letras &C);
-  class iterator {
-  private:
-    set<letra>::iterator it;
-  public:
-    iterator ();
-    letra operator *() const;
-    iterator & operator ++();
-    bool operator ==(const iterator &i) const;
-    bool operator !=(const iterator &i) const;
-    friend class conjunto_letras;
-  };
-  iterator begin() const;
-  iterator end() const;
-  iterator find(const char &c) const;
+  typedef set<letra>::iterator iterator;
+  typedef set<letra>::const_iterator const_iterator;
+  conjunto_letras::iterator begin();
+  conjunto_letras::const_iterator begin() const;
+  conjunto_letras::iterator end();
+  conjunto_letras::const_iterator end() const;
 };
 #endif
