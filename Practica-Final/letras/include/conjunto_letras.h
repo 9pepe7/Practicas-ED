@@ -14,7 +14,7 @@ public:
   typedef set<letra>::iterator iterator;
   typedef set<letra>::const_iterator const_iterator;
   conjunto_letras();
-  void pantallaPuntuaciones();
+  void pantallaPuntuaciones() const;
   int puntuacion(const char &c) const;
   friend istream & operator>>(istream & is, conjunto_letras &C);
   friend ostream & operator<<(ostream & os, const conjunto_letras &C);

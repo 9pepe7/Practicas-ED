@@ -16,7 +16,7 @@ private:
 public:
   bolsa_letras();
   bolsa_letras(const conjunto_letras &C);
-  void setAleatorias(const unsigned &tam); // NO SÉ POR QUÉ NO PUEDO HACER const ÉSTA
+  void setAleatorias(const unsigned &tam);
   bool solucion_correcta(string pal) const;
   unsigned puntuacionP(const string &pal, const conjunto_letras &C) const;
   unsigned puntuacionL(const string &pal) const;

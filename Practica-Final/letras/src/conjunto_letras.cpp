@@ -9,7 +9,7 @@ using namespace std;
 
 conjunto_letras::conjunto_letras(){}
 
-void conjunto_letras::pantallaPuntuaciones(){ // Saca por pantalla las puntuaciones del objeto conjunto
+void conjunto_letras::pantallaPuntuaciones() const{ // Saca por pantalla las puntuaciones del objeto conjunto
   cout << "******Puntuaciones Letras*******" << endl;
   for(conjunto_letras::iterator it = begin(); it!=end(); ++it)
     cout << (*it).getLetra() << "\t" << (*it).getPuntuacion() << endl;
