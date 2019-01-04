@@ -104,4 +104,4 @@ public:
     */
   iterator end() const;
 };
-#endifSS
+#endif

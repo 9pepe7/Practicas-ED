@@ -20,6 +20,7 @@ using namespace std;
 
 class letra{
 private:
+  
   /**
    * @page repLetra Rep del TDA letra
    *
