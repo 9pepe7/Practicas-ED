@@ -23,16 +23,16 @@ using namespace std;
 class bolsa_letras{
 private:
 
-  /**
-   * @page repLetra Rep del TDA bolsa_letras
-   *
-   * @section funcBolsa_letras  Funcion de Abstracción
-   *
-   * Un objeto del TDA bolsa_letras representa un conjunto de letras y otro de letras aleatorizadas
-   *
-   */
-  vector<char> letras;  /**< Vector de caracteres */
-  vector<char> aleatorias;  /**< Vector de caracteres */
+/**
+  * @page repLetra Rep del TDA bolsa_letras
+  *
+  * @section funcBolsa_letras  Funcion de Abstracción
+  *
+  * Un objeto del TDA bolsa_letras representa un conjunto de letras y otro de letras aleatorizadas
+  *
+  */
+  vector<char> letras;  /**< Vector de caracteres con las letras de juego */
+  vector<char> aleatorias;  /**< Vector de caracteres con las letras aleatorias*/
 public:
 
   /**
@@ -43,14 +43,15 @@ public:
 
   /**
     * @brief Constructor con parámetros desde un conjunto de letras de la clase.
-    * @param C Conjunto de letras del que se copian los caracteres
+    * @param C Conjunto de letras del que se sacan las letras con las que se juega
     * @details Solo se copian los caracteres al vector de caracteres letras
     */
   bolsa_letras(const conjunto_letras &C);
 
   /**
-    * @brief Método que permite darle valores al vector de aleatorias, sacados del vector de letras
+    * @brief Método que permite darle valores al vector de aleatorias
     * @param tam tamaño del vector de aleatorias
+    * @details Se eligen tam letras del vector miembro letras y se almacenan en aleatorias
     */
   void setAleatorias(const unsigned &tam);
 

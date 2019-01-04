@@ -25,7 +25,7 @@ private:
    * @page repConjunto_letras Rep del TDA conjunto_letras
    *
    *
-   * @section funcLetra  Funcion de Abstracción
+   * @section funcConjunto_letras Funcion de Abstracción
    *
    * Un objeto del TDA conjunto_letras representa una serie de elementos del TDA letras agrupados
    *

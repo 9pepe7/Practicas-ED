@@ -83,7 +83,7 @@ Métodos públicos</h2></td></tr>
 <tr class="memdesc:af56c044e8f85dc260f5fafd1741aa542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor con parámetros desde un conjunto de letras de la clase.  <a href="#af56c044e8f85dc260f5fafd1741aa542">Más...</a><br /></td></tr>
 <tr class="separator:af56c044e8f85dc260f5fafd1741aa542"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef6b49995bb4951a9c9b39688add05ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbolsa__letras.html#aef6b49995bb4951a9c9b39688add05ce">setAleatorias</a> (const unsigned &amp;tam)</td></tr>
-<tr class="memdesc:aef6b49995bb4951a9c9b39688add05ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que permite darle valores al vector de aleatorias, sacados del vector de letras.  <a href="#aef6b49995bb4951a9c9b39688add05ce">Más...</a><br /></td></tr>
+<tr class="memdesc:aef6b49995bb4951a9c9b39688add05ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que permite darle valores al vector de aleatorias.  <a href="#aef6b49995bb4951a9c9b39688add05ce">Más...</a><br /></td></tr>
 <tr class="separator:aef6b49995bb4951a9c9b39688add05ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1e16aec7c88807379dc0618e061ffc8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbolsa__letras.html#aa1e16aec7c88807379dc0618e061ffc8">solucion_correcta</a> (string pal) const</td></tr>
 <tr class="memdesc:aa1e16aec7c88807379dc0618e061ffc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que comprueba si una palabra es solución del vector de aleatorias.  <a href="#aa1e16aec7c88807379dc0618e061ffc8">Más...</a><br /></td></tr>
@@ -165,7 +165,7 @@ Emilio Calvo de Mora Mármol </dd></dl>
 <p>Constructor con parámetros desde un conjunto de letras de la clase. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">C</td><td>Conjunto de letras del que se copian los caracteres</td></tr>
+    <tr><td class="paramname">C</td><td>Conjunto de letras del que se sacan las letras con las que se juega</td></tr>
   </table>
   </dd>
 </dl>
@@ -255,13 +255,14 @@ Emilio Calvo de Mora Mármol </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Método que permite darle valores al vector de aleatorias, sacados del vector de letras. </p>
+<p>Método que permite darle valores al vector de aleatorias. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tam</td><td>tamaño del vector de aleatorias </td></tr>
+    <tr><td class="paramname">tam</td><td>tamaño del vector de aleatorias</td></tr>
   </table>
   </dd>
 </dl>
+<p>Se eligen tam letras del vector miembro letras y se almacenan en aleatorias </p>
 
 </div>
 </div>
@@ -424,7 +425,7 @@ Emilio Calvo de Mora Mármol </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Vector de caracteres </p>
+<p>Vector de caracteres con las letras aleatorias </p>
 
 </div>
 </div>
@@ -447,7 +448,7 @@ Emilio Calvo de Mora Mármol </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Vector de caracteres </p>
+<p>Vector de caracteres con las letras de juego </p>
 
 </div>
 </div>

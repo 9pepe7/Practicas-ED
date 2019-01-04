@@ -10,7 +10,7 @@ using namespace std;
 
 class lista_palabras{
 private:
-  set<string,comp> datos; /** set de strings ordenados según el criterio comp */
+  set<string,comp> datos; /**< set de strings ordenados según el criterio comp */
 
 public:
 /**
