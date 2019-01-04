@@ -41,12 +41,14 @@ $(OBJ)/cantidad_letras.o: $(SRC)/cantidad_letras.cpp $(INC)/conjunto_letras.h
 
 # 4. lib lista_palabras
 $(LIB)/liblistapalabras.a: $(OBJ)/lista_palabras.o
+	@echo Creando biblioteca $@
 	@ar $(ARFLAGS) $@ $^
 $(OBJ)/lista_palabras.o: $(SRC)/lista_palabras.cpp $(INC)/lista_palabras.h $(INC)/comp.h
 	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
 
 # 5. lib bolsa_letras
 $(LIB)/libbolsa_letras.a: $(OBJ)/bolsa_letras.o $(OBJ)/conjunto_letras.o $(OBJ)/letra.o
+	@echo Creando biblioteca $@
 	@ar $(ARFLAGS) $@ $^
 
 $(OBJ)/bolsa_letras.o: $(SRC)/bolsa_letras.cpp $(INC)/bolsa_letras.h $(INC)/conjunto_letras.h $(INC)/letra.h $(INC)/lista_palabras.h
