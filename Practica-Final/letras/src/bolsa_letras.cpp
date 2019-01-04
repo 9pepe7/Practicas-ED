@@ -16,8 +16,8 @@ bolsa_letras::bolsa_letras(){}
 
 bolsa_letras::bolsa_letras(const conjunto_letras &C){ // Se crea con los datos de un conjunto
   for(conjunto_letras::iterator it = C.begin(); it!=C.end(); ++it){
-    for(int j=0; j<(*it).getCantidad(); ++j)
-      letras.push_back((*it).getLetra());
+    for(int j=0; j<it->getCantidad(); ++j)
+      letras.push_back(it->getLetra());
   }
 }
 

@@ -12,19 +12,19 @@ conjunto_letras::conjunto_letras(){}
 void conjunto_letras::pantallaPuntuaciones() const{ // Saca por pantalla las puntuaciones del objeto conjunto
   cout << "******Puntuaciones Letras*******" << endl;
   for(conjunto_letras::iterator it = begin(); it!=end(); ++it)
-    cout << (*it).getLetra() << "\t" << (*it).getPuntuacion() << endl;
+    cout << it->getLetra() << "\t" << it->getPuntuacion() << endl;
 }
 
 int conjunto_letras::puntuacion(const char &c) const{ // Devuelve la puntuacion de un caracter
   conjunto_letras::iterator it = this->find(c);
   if(it != end())
-    return (*it).getPuntuacion();
+    return it->getPuntuacion();
   return 0;
 }
 
 conjunto_letras::iterator conjunto_letras::find(const char &c) const { // Busca un caracter
   for(conjunto_letras::iterator it=this->begin(); it!=this->end(); ++it){
-    if((*it).getLetra() == toupper(c))
+    if(it->getLetra() == toupper(c))
       return it; // Devuelve puntero al objeto letra
   }
   return end(); // Si no se encuentra, se devuelve end
