@@ -36,7 +36,7 @@ int main(int argc, char * argv[]){
   conjunto_letras C; f_letras >> C;
   map<char,int> recuento;
   for(conjunto_letras::iterator it=C.begin(); it!=C.end(); ++it)
-    recuento[(*it).getLetra()]=0; // Se añaden las letras al map
+    recuento[it->getLetra()]=0; // Se añaden las letras al map
 
   map<char,int>::iterator it;
   char c;
