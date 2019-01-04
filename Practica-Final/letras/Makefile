@@ -40,14 +40,14 @@ $(OBJ)/cantidad_letras.o: $(SRC)/cantidad_letras.cpp $(INC)/conjunto_letras.h
 	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
 
 # 4. lib lista_palabras
-$(LIB)/liblistapalabras.a: $(OBJ)/lista_palabras.o
+$(LIB)/liblistapalabras.a: $(OBJ)/lista_palabras.o $(OBJ)/comp.o
 	@echo Creando biblioteca $@
 	@ar $(ARFLAGS) $@ $^
 $(OBJ)/lista_palabras.o: $(SRC)/lista_palabras.cpp $(INC)/lista_palabras.h $(INC)/comp.h
 	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
 
 # 5. lib bolsa_letras
-$(LIB)/libbolsa_letras.a: $(OBJ)/bolsa_letras.o $(OBJ)/conjunto_letras.o $(OBJ)/letra.o
+$(LIB)/libbolsa_letras.a: $(OBJ)/bolsa_letras.o $(OBJ)/conjunto_letras.o $(OBJ)/letra.o $(OBJ)/comp.o
 	@echo Creando biblioteca $@
 	@ar $(ARFLAGS) $@ $^
 
@@ -58,6 +58,10 @@ $(OBJ)/conjunto_letras.o: $(SRC)/conjunto_letras.cpp $(INC)/conjunto_letras.h $(
 	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
 
 $(OBJ)/letra.o: $(SRC)/letra.cpp $(INC)/letra.h $(INC)/comp.h
+	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
+
+# 6. struct comp.h que va (según parece) en las bibliotecas
+$(OBJ)/comp.o: $(SRC)/comp.cpp $(INC)/comp.h
 	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
 
 
