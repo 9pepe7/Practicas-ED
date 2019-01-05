@@ -30,7 +30,7 @@ private:
    * Un objeto del TDA conjunto_letras representa una serie de elementos del TDA letras agrupados
    *
    */
-  set<letra> letras;
+  set<letra> letras;  /**< Set de elementos del TDA letra */
 public:
   typedef set<letra>::iterator iterator;  /**< Iterador de la clase basado en el tipo set subyacente */
   typedef set<letra>::const_iterator const_iterator;  /**< Iterador constante de la clase basado en el tipo set subyacente */

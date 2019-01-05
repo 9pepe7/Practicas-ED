@@ -8,8 +8,32 @@
 
 using namespace std;
 
+/**
+  * @brief T.D.A. LISTA_PALABRAS
+  *
+  * Una instancia del TDA lista_palabras es un objeto que contiene un set de elementos,
+  *  de tipo string llamado datos.
+  *
+  * @author José Manuel Navarro Cuartero
+  * @author Emilio Calvo de Mora Mármol
+  * @date Enero 2019
+  */
+
 class lista_palabras{
 private:
+
+  /**
+   * @page repLista_palabras Rep del TDA lista_palabras
+   *
+   * @section invLista_palabras Invariante de la representación
+   *
+   * El invariante de representación dicta que el set estará ordenado
+   *
+   * @section funcLista_palabras  Funcion de Abstracción
+   *
+   * Un objeto del TDA lista_palabras representa una lista de palabras ordenadas
+   *
+   */
   set<string,comp> datos; /**< set de strings ordenados según el criterio comp */
 
 public:
@@ -53,9 +77,25 @@ public:
   */
   friend ostream & operator<<(ostream & os, const lista_palabras &D);
 
+
+  /**
+    * @brief Clase iterador del TDA lista_palabras
+    *
+    * Una instancia del iterador del TDA lista_palabras permite moverse por los elementos de dicho TDA
+    *
+    * @author José Manuel Navarro Cuartero
+    * @author Emilio Calvo de Mora Mármol
+    * @date Enero 2019
+    */
   class iterator {
   private:
-    set<string>::iterator it;
+    /**
+     * @page repIterator Rep del iterador del TDA lista_palabras
+     *
+     * Un iterador de esta clase permite iterar por el TDA lista_palabras
+     *
+     */
+    set<string>::iterator it; /**< Iterador de la clase */
 
   public:
     /**
