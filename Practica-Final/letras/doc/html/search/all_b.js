@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['setaleatorias',['setAleatorias',['../classbolsa__letras.html#aef6b49995bb4951a9c9b39688add05ce',1,'bolsa_letras']]],
-  ['size',['size',['../classlista__palabras.html#ab901975fd828bc891eb7b498bd053436',1,'lista_palabras']]],
-  ['solucion_5fcorrecta',['solucion_correcta',['../classbolsa__letras.html#aa1e16aec7c88807379dc0618e061ffc8',1,'bolsa_letras']]],
-  ['solucionesl',['solucionesL',['../classbolsa__letras.html#a0b62d406c01ce89e64e8396abca53b01',1,'bolsa_letras']]],
-  ['solucionesp',['solucionesP',['../classbolsa__letras.html#aca562c5af426c5c9ac7bcdfe4e92b846',1,'bolsa_letras']]]
+  ['palabras_5flongitud',['palabras_longitud',['../classlista__palabras.html#af52921f66f8548d63fb7a527c38d5663',1,'lista_palabras']]],
+  ['pantallaaleatorias',['pantallaAleatorias',['../classbolsa__letras.html#a4ff7a48ef4250ae04ad21685ba2244fe',1,'bolsa_letras']]],
+  ['pantallapuntuaciones',['pantallaPuntuaciones',['../classconjunto__letras.html#af2ad2390e0282f2f76ee951e3ac9861c',1,'conjunto_letras']]],
+  ['puntuacion',['puntuacion',['../classletra.html#a9a751aa2a809db0ce889bf8d9f174c9c',1,'letra::puntuacion()'],['../classconjunto__letras.html#a6810b919e71865f653ac323ad4952dda',1,'conjunto_letras::puntuacion()']]],
+  ['puntuacionl',['puntuacionL',['../classbolsa__letras.html#aed3abdd75857b62a47550abc4dc38678',1,'bolsa_letras']]],
+  ['puntuacionp',['puntuacionP',['../classbolsa__letras.html#a1c20768494adda4f8941ebc9e1111472',1,'bolsa_letras']]]
 ];

@@ -55,7 +55,7 @@ int main(int argc, char * argv[]){
     frecuencias[it->first]=(it->second/total*100); // En %
 
   f_salida << "#Letra\tCantidad" << endl;
-  f_salida << setprecision(2) << fixed; //Se limita la salida a 2 decimales
+  //f_salida << setprecision(2) << fixed; //Se limita la salida a 2 decimales
   for(map<char,double>::iterator ite=frecuencias.begin(); ite!=frecuencias.end(); ++ite)
     f_salida << ite->first << "\t" << ite->second << "%" << endl; // Se guarda en el archivo de salida
 }

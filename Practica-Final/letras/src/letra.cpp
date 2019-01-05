@@ -4,7 +4,11 @@
 
 using namespace std;
 
-letra::letra(){}
+letra::letra(){
+  caracter='\0';
+  cantidad=0;
+  puntuacion=0;
+}
 
 char letra::getLetra() const{
   return caracter;
@@ -16,6 +20,16 @@ int letra::getCantidad() const{
 
 int letra::getPuntuacion() const{
   return puntuacion;
+}
+
+bool letra::nula() const{
+  if(caracter=='\0')
+    return true;
+  if(cantidad==0)
+    return true;
+  if(puntuacion==0)
+    return true;
+  return false;
 }
 
 istream & operator>>(istream & is, letra &L){

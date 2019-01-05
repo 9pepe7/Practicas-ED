@@ -1,3 +1,8 @@
+/**
+  * @file bolsa_letras.h
+  * @brief Fichero cabecera del TDA bolsa_letras
+  *
+  */
 #ifndef BOLSA_LETRAS_H
 #define BOLSA_LETRAS_H
 
@@ -7,14 +12,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
 
 /**
   * @brief T.D.A. BOLSA_LETRAS
   *
   * Una instancia del TDA bolsa_letras es un objeto que contiene dos vectores de caracteres en los
-  * los que uno es un conjunto de caracteres sacado de una serie de elementos del TDA letras,
-  * y el otro es la aleatorización del primero
+  * los que uno es un conjunto de caracteres sacado de una serie de elementos del TDA conjunto_letras,
+  * y el otro es la aleatorización de un subconjunto primero
   *
   * @author José Manuel Navarro Cuartero
   * @author Emilio Calvo de Mora Mármol
@@ -33,6 +39,7 @@ private:
   */
   vector<char> letras;  /**< Vector de caracteres con las letras de juego */
   vector<char> aleatorias;  /**< Vector de caracteres con las letras aleatorias*/
+
 public:
 
   /**
@@ -58,8 +65,8 @@ public:
   /**
     * @brief Método que comprueba si una palabra es solución del vector de aleatorias
     * @param pal palabra que se comprueba si es solución
-    * @details Solo se copian los caracteres al vector de caracteres letras
     * @return booleano true si es solución correcta, false si no
+    * @details Solo se copian los caracteres al vector de caracteres letras
     */
   bool solucion_correcta(string pal) const;
 

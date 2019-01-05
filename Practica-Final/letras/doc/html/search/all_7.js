@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['letra',['letra',['../classletra.html',1,'letra'],['../classletra.html#ab5d062324d6960e12f2adb680681524e',1,'letra::letra()']]],
-  ['letras',['letras',['../classbolsa__letras.html#af3f1a61c0bd15623a594ec7029972545',1,'bolsa_letras']]],
-  ['lista_5fpalabras',['lista_palabras',['../classlista__palabras.html',1,'lista_palabras'],['../classlista__palabras.html#af86ec234b180eace9a631e3aaae0b630',1,'lista_palabras::lista_palabras()']]]
+  ['it',['it',['../classlista__palabras_1_1iterator.html#a28bc5c68a3a83d908c3943a835dd41c7',1,'lista_palabras::iterator']]],
+  ['iterator',['iterator',['../classlista__palabras_1_1iterator.html',1,'lista_palabras::iterator'],['../classconjunto__letras.html#a6bedf597e7b6e328f31886551d06641f',1,'conjunto_letras::iterator()'],['../classlista__palabras_1_1iterator.html#a9d38fcf0a6e6f06a16aa2763462d01db',1,'lista_palabras::iterator::iterator()']]]
 ];

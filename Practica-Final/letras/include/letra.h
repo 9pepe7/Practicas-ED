@@ -20,20 +20,20 @@ using namespace std;
 
 class letra{
 private:
-  
+
   /**
-   * @page repLetra Rep del TDA letra
-   *
-   * @section invLetra Invariante de la representación
-   *
-   * El invariante de representación dicta que cada carácter tendrá siempre
-   * una cantidad mayor que 0.
-   *
-   * @section funcLetra  Funcion de Abstracción
-   *
-   * Un objeto del TDA letra representa un carácter, la cantidad de veces que se repite, y la puntuación asociada al mismo
-   *
-   */
+    * @page repLetra Rep del TDA letra
+    *
+    * @section invLetra Invariante de la representación
+    *
+    * El invariante de representación dicta que cada letra tendrá siempre
+    * un caracter no nulo, y una cantidad y una puntuacion mayores que 0.
+    *
+    * @section funcLetra  Funcion de Abstracción
+    *
+    * Un objeto del TDA letra representa un carácter, la cantidad de veces que se puede aparecer en el juego, y la puntuación asociada al mismo
+    *
+    */
   char caracter;/**< char con el carácter que identifica la letra */
   int cantidad;/**< int con la cantidad asociada al carácter */
   int puntuacion;/**< int con la puntuación asociada al carácter */
@@ -58,11 +58,18 @@ public:
     */
   int getCantidad() const;
 
-    /**
-      * @brief Devuelve la puntuación del tipo letra
-      * @return La puntuación de la letra
-      */
+  /**
+    * @brief Devuelve la puntuación del tipo letra
+    * @return La puntuación de la letra
+    */
   int getPuntuacion() const;
+
+  /**
+    * @brief Comprueba si el objeto letra es nulo
+    * @return true si es nula, false si no
+    * @details Se considera que una letra es nula si alguno de sus objetos miembro lo es
+    */
+  bool nula() const;
 
   /**
     * @brief Sobrecarga del operador de lectura

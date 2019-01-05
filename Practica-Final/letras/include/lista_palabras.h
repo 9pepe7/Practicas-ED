@@ -11,8 +11,7 @@ using namespace std;
 /**
   * @brief T.D.A. LISTA_PALABRAS
   *
-  * Una instancia del TDA lista_palabras es un objeto que contiene un set de elementos,
-  *  de tipo string llamado datos.
+  * Una instancia del TDA lista_palabras es un objeto que contiene un set de strings.
   *
   * @author José Manuel Navarro Cuartero
   * @author Emilio Calvo de Mora Mármol
@@ -23,58 +22,58 @@ class lista_palabras{
 private:
 
   /**
-   * @page repLista_palabras Rep del TDA lista_palabras
-   *
-   * @section invLista_palabras Invariante de la representación
-   *
-   * El invariante de representación dicta que el set estará ordenado
-   *
-   * @section funcLista_palabras  Funcion de Abstracción
-   *
-   * Un objeto del TDA lista_palabras representa una lista de palabras ordenadas
-   *
-   */
+    * @page repLista_palabras Rep del TDA lista_palabras
+    *
+    * @section invLista_palabras Invariante de la representación
+    *
+    * El invariante de representación dicta que el set estará ordenado
+    *
+    * @section funcLista_palabras  Funcion de Abstracción
+    *
+    * Un objeto del TDA lista_palabras representa una lista de palabras ordenadas
+    *
+    */
   set<string,comp> datos; /**< set de strings ordenados según el criterio comp */
 
 public:
-/**
-  * @brief Construye un lista_palabras vacio
-  */
+  /**
+    * @brief Construye un lista_palabras vacio
+    */
   lista_palabras();
 
-/**
-  * @brief Devuelve el numero de palabras en el lista_palabras
-  */
+  /**
+    * @brief Devuelve el numero de palabras en el lista_palabras
+    */
   int size() const;
 
-/**
-  * @brief Obtiene todas las palabras en el lista_palabras de una longitud dada
-  * @param longitud la longitud de las palabras de salida
-  * @return un vector con las palabras de longitud especificada en el parámetro de entrada
-  */
+  /**
+    * @brief Obtiene todas las palabras en el lista_palabras de una longitud dada
+    * @param longitud la longitud de las palabras de salida
+    * @return un vector con las palabras de longitud especificada en el parámetro de entrada
+    */
   vector<string> palabras_longitud(const int &longitud) const;
 
-/**
-  * @brief Indica si una palabra está en el lista_palabras o no
-  * @param palabra la palabra que se quiere buscar
-  * @return true si la palabra esta en el lista_palabras. false en caso contrario
-  */
+  /**
+    * @brief Indica si una palabra está en el lista_palabras o no
+    * @param palabra la palabra que se quiere buscar
+    * @return true si la palabra esta en el lista_palabras. false en caso contrario
+    */
   bool Esta(const string &palabra) const;
 
-/**
-  * @brief Lee de un flujo de entrada un lista_palabras
-  * @param is flujo de entrada
-  * @param D el objeto donde se realiza la lectura.
-  * @return el flujo de entrada
-  */
+  /**
+    * @brief Lee de un flujo de entrada un lista_palabras
+    * @param is flujo de entrada
+    * @param D el objeto donde se realiza la lectura.
+    * @return el flujo de entrada
+    */
   friend istream & operator>>(istream & is, lista_palabras &D);
 
-/**
-  * @brief Escribe en un flujo de salida un lista_palabras
-  * @param os flujo de salida
-  * @param D el objeto lista_palabras que se escribe
-  * @return el flujo de salida
-  */
+  /**
+    * @brief Escribe en un flujo de salida un lista_palabras
+    * @param os flujo de salida
+    * @param D el objeto lista_palabras que se escribe
+    * @return el flujo de salida
+    */
   friend ostream & operator<<(ostream & os, const lista_palabras &D);
 
 
@@ -129,6 +128,7 @@ public:
       * @return Un valor lógico, true si i es diferente del iterador que llama al método, false si al contrario
       */
     bool operator !=(const iterator &i) const;
+    
     friend class lista_palabras;
   };
 

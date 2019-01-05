@@ -36,7 +36,8 @@ istream & operator>>(istream & is, conjunto_letras &C){
   while(!is.eof()){
     letra l;
     is >> l;
-    C.letras.insert(l);
+    if(!l.nula())
+      C.letras.insert(l);
   }
   return is;
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['letras',['letras',['../classbolsa__letras.html#af3f1a61c0bd15623a594ec7029972545',1,'bolsa_letras']]]
+  ['datos',['datos',['../classlista__palabras.html#a91eab643254af7f1b8755d65b53018d4',1,'lista_palabras']]]
 ];
