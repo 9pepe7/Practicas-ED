@@ -5,7 +5,7 @@ SRC = ./src
 LIB = ./lib
 CXX = g++
 CPPFLAGS = -Wall -g -c -o
-ARFLAGS = rs
+ARFLAGS = crs
 .PHONY: all documentacion clean mrproper
 
 all: $(BIN)/testlista_palabras $(BIN)/letras $(BIN)/cantidad_letras
@@ -15,7 +15,7 @@ documentacion:
 	doxygen doc/doxys/Doxyfile
 
 # ************ Compilación de módulos ************
-# 1. testlista_palabras
+# 1. ejecutable testlista_palabras
 $(BIN)/testlista_palabras: $(OBJ)/testlista_palabras.o $(LIB)/liblistapalabras.a
 	@echo Creando ejecutable $@
 	@$(CXX) -o $@ $< -L$(LIB) -llistapalabras
@@ -23,7 +23,7 @@ $(BIN)/testlista_palabras: $(OBJ)/testlista_palabras.o $(LIB)/liblistapalabras.a
 $(OBJ)/testlista_palabras.o: $(SRC)/testlista_palabras.cpp $(INC)/lista_palabras.h
 	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
 
-# 2. letras
+# 2. ejecutable letras
 $(BIN)/letras: $(OBJ)/letras.o $(LIB)/libbolsa_letras.a $(LIB)/liblistapalabras.a
 	@echo Creando ejecutable $@
 	@$(CXX) -o $@ $< -L$(LIB) -lbolsa_letras -llistapalabras
@@ -31,7 +31,7 @@ $(BIN)/letras: $(OBJ)/letras.o $(LIB)/libbolsa_letras.a $(LIB)/liblistapalabras.
 $(OBJ)/letras.o: $(SRC)/letras.cpp $(INC)/bolsa_letras.h $(INC)/lista_palabras.h $(INC)/conjunto_letras.h
 	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
 
-# 3. cantidad_letras
+# 3. ejecutable cantidad_letras
 $(BIN)/cantidad_letras: $(OBJ)/cantidad_letras.o $(LIB)/libbolsa_letras.a
 	@echo Creando ejecutable $@
 	@$(CXX) -o $@ $< -L$(LIB) -lbolsa_letras
@@ -60,16 +60,15 @@ $(OBJ)/conjunto_letras.o: $(SRC)/conjunto_letras.cpp $(INC)/conjunto_letras.h $(
 $(OBJ)/letra.o: $(SRC)/letra.cpp $(INC)/letra.h $(INC)/comp.h
 	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
 
-# 6. struct comp.h que va (según parece) en las bibliotecas
+# 6. struct comp.h que va en las bibliotecas
 $(OBJ)/comp.o: $(SRC)/comp.cpp $(INC)/comp.h
 	@$(CXX) $(CPPFLAGS) $@ $< -I$(INC)
 
-
 # ************ Limpieza ************
 clean :
-	@echo Borrando los ficheros .o y los temporales
-	@-rm $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
+	@echo Borrando los ficheros .o, las bibliotecas y los temporales
+	@-rm $(OBJ)/* $(LIB)/* $(SRC)/*~ $(INC)/*~ ./*~
 
 mrproper : clean
 	@echo Borrando ejecutable y documentacion
-	@-rm $(BIN)/* doc/html/*
+	@-rm -r $(BIN)/* doc/html/*
